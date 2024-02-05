@@ -68,6 +68,9 @@ class DrpEnv(gym.Env):
 		
 		obs_box = self.obs_manager.get_obs_box()
 		self.observation_space = gym.spaces.Tuple(tuple([obs_box] * self.agent_num))
+
+		self.log = {}
+
 		
 
 	def get_obs(self):
@@ -122,8 +125,6 @@ class DrpEnv(gym.Env):
 		print('Environment reset obs: \n', self.obs)
 
 		obs = self.obs_manager.calc_obs()
-
-		self.log = {}
 
 		return obs
 		
