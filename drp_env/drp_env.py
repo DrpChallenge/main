@@ -68,8 +68,7 @@ class DrpEnv(gym.Env):
 		
 		obs_box = self.obs_manager.get_obs_box()
 		self.observation_space = gym.spaces.Tuple(tuple([obs_box] * self.agent_num))
-
-		self.log = {}
+		
 
 	def get_obs(self):
 		return self.obs
@@ -123,6 +122,8 @@ class DrpEnv(gym.Env):
 		print('Environment reset obs: \n', self.obs)
 
 		obs = self.obs_manager.calc_obs()
+
+		self.log = {}
 
 		return obs
 		
@@ -260,25 +261,26 @@ class DrpEnv(gym.Env):
 		info["distance_from_start"] = self.distance_from_start
 
 		if all(self.terminated) is True:
-			self.record_log(info)
+			self.update_log(info)
 
 		return obs, ri_array, self.terminated, info
+	
+	def update_log(self, info):
+		log_episode = {}
 
-	def record_log(self, info):
-		log_epi = {}
 		if info["goal"] is True:
-			log_epi["result"] =  "goal"
+			log_episode["result"] = "goal"
 		elif info["collision"] is True:
-			log_epi["result"] = "collision"
+			log_episode["result"] = "collision"
 		elif info["timeup"] is True:
-			log_epi["result"] = "timeup"
+			log_episode["result"] = "timeup"
 		else:
-			log_epi["result"] = "exception"
+			log_episode["result"] = "exception"
 
-		log_epi["termination_time"] = info["step"]
-		log_epi["distance_from_start"] = info["distance_from_start"]
+		log_episode["termination_time"] = info["step"]
+		log_episode["distance_from_start"] = info["distance_from_start"]
 
-		self.log[self.episode_account] = log_epi
+		self.log[self.episode_account] = log_episode
 
 	def get_log(self, epi):
 		return self.log[epi]
