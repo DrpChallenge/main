@@ -12,8 +12,8 @@
 
 ## Installation
 ```
-git clone https://github.com/DING-1994/drp.git
-pip install -e ./drp
+git clone https://github.com/DrpChallenge/main.git
+pip3 install -e ./drp
 ```
 
 ## Environment
