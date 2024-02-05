@@ -13,7 +13,8 @@
 ## Installation
 ```
 git clone https://github.com/DrpChallenge/main.git
-pip3 install -e ./drp
+pip3 install -e ./main
+pip3 install -r ./main/requirements.txt
 ```
 
 ## Environment
