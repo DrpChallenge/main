@@ -68,7 +68,8 @@ class DrpEnv(gym.Env):
 		
 		obs_box = self.obs_manager.get_obs_box()
 		self.observation_space = gym.spaces.Tuple(tuple([obs_box] * self.agent_num))
-		
+
+		self.log = {}
 
 	def get_obs(self):
 		return self.obs
@@ -258,8 +259,29 @@ class DrpEnv(gym.Env):
 
 		info["distance_from_start"] = self.distance_from_start
 
+		if all(self.terminated) is True:
+			self.record_log(info)
+
 		return obs, ri_array, self.terminated, info
 
+	def record_log(self, info):
+		log_epi = {}
+		if info["goal"] is True:
+			log_epi["result"] =  "goal"
+		elif info["collision"] is True:
+			log_epi["result"] = "collision"
+		elif info["timeup"] is True:
+			log_epi["result"] = "timeup"
+		else:
+			log_epi["result"] = "exception"
+
+		log_epi["termination_time"] = info["step"]
+		log_epi["distance_from_start"] = info["distance_from_start"]
+
+		self.log[self.episode_account] = log_epi
+
+	def get_log(self, epi):
+		return self.log[epi]
 
 	def reward(self, i):
 		pre_pos_agenti = [self.obs_current_chache[i][0],self.obs_current_chache[i][1]]
