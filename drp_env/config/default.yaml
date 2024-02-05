@@ -1,0 +1,21 @@
+agent_num: 2
+base_nodes: [0]
+speed: 5
+start_ori_array: []
+goal_array: []
+visu_delay: 0.3
+m: 10 # unused
+round_trip: False
+map_name: "map_3x3"
+state_repre_flag: "onehot_fov"
+reward_list:
+  goal: 100
+  collision: -10
+  wait: -10
+  move: -1
+
+## temp ##
+# time_limit: 100
+time_limit: False
+collision: "terminated" 
+# collision: "bounceback" 
