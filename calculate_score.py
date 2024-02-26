@@ -1,0 +1,128 @@
+import gym
+import time
+
+import policy as submitted
+import drp_instances as problems
+
+### Parameters
+TEST_EPI_NUM = 100
+###############
+
+def calculate_score(instances, policy):
+    """
+    Evaluation criteria
+    1. runtime: mean of the runtime per each episode
+    2. distance: mean of total moving distance of every agents
+    3. time_step: mean of the termination time step of each episode
+    4. goal_rate: goal rate
+
+    Why mean?
+    If the submitted policy is stochastic one,
+    then we have to evaluate its expected performance,
+    not one snapshot performance.
+    """
+    scores = []
+    for instance in instances:
+        map_name = instance["map"]
+        agent_num = instance["agent_num"]
+        start_arr = instance["start"]
+        goal_arr = instance["goal"]
+
+        # make environment
+        env = gym.make(
+            "drp_env:drp-" + str(agent_num) + "agent_" + map_name + "-v2",
+            state_repre_flag="onehot_fov",
+            goal_array=goal_arr,
+            start_ori_array=start_arr,
+        )
+
+        # recore runtime of each episode
+        time_record = []
+        goal_rate_list = []
+        # run environment with submitted policy
+        for epi in range(TEST_EPI_NUM):
+            start_time = time.time()
+
+            n_obs = env.reset()
+            goal_checker = False
+            while not goal_checker:
+                actions = policy(n_obs, env)
+                n_obs, _, done, _ = env.step(actions)
+                goal_checker = all(done)
+            pos = env.get_pos_list()
+            goal_agent = 0
+            for i in range(len(pos)):
+                if (
+                    pos[i]["type"] == "n" and pos[i]["pos"] == goal_arr[i]
+                ):  # if agent goal
+                    goal_agent += 1  # max(goal_agent)=agent_num
+            goalrate = goal_agent / agent_num
+            end_time = time.time()
+            time_record.append(end_time - start_time)
+            goal_rate_list.append(goalrate)
+
+        # calculate score from logs in environment
+        score = {"instance_id": instance["id"]}
+
+        mean_runtime = 0.0
+        sum_runtime = 0.0
+
+        mean_distance = 0.0
+        sum_distance = 0.0
+
+        mean_timestep = 0.0
+        sum_timestep = 0.0
+
+        goalrate = 0.0
+        # goalcount = 0
+        distance = []
+        
+        for epi in range(TEST_EPI_NUM):
+            log = env.get_log(epi + 1)
+            sum_runtime += time_record[epi]
+            sum_distance += sum(log["distance_from_start"])
+            sum_timestep += log["termination_time"]
+            # if log["result"] == "goal": # if goal_count  + 1 if "all" agent goal
+            #     goalcount += 1
+            distance.append(1/sum(log["distance_from_start"]))
+        list_of_score = []
+        for i in range(len(goal_rate_list)):
+            list_of_score.append(distance[i] * goal_rate_list[i])
+        mean_runtime = sum_runtime / TEST_EPI_NUM
+        mean_distance = sum_distance / TEST_EPI_NUM
+        mean_timestep = sum_timestep / TEST_EPI_NUM
+        goalrate = sum(goal_rate_list) / TEST_EPI_NUM
+        
+        score["runtime"] = mean_runtime
+        score["distance"] = mean_distance
+        score["time_step"] = mean_timestep
+        score["goal_rate"] = goalrate
+        score["goal_count"] = goal_rate_list.count(1.0)
+        score["subtotal_score"] = sum(list_of_score) / TEST_EPI_NUM
+        scores.append(score)
+
+        # delete env
+        del env
+
+    return scores
+
+if __name__ == "__main__":
+    import json
+    from datetime import datetime
+
+    scores = calculate_score(problems.instances, submitted.policy)
+
+    # Calculate final score
+    subtotal_scores = [entry["subtotal_score"] for entry in scores]
+    final_score = sum(subtotal_scores) / len(subtotal_scores)
+
+    score_dict = {
+        "Author": submitted.TEAM_NAME,
+        "Scored time": str(datetime.now().strftime("%Y-%m-%H-%M-%S")),
+        "Score": scores,
+        "final score": final_score,
+    }
+
+    json_filename = submitted.TEAM_NAME + ".json"
+    with open(json_filename, "w") as f:
+        json.dump(score_dict, f, indent=4)

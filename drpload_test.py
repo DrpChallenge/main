@@ -10,7 +10,7 @@ print("observation_space", env.observation_space)
 for _ in range(50):
     env.render()
 
-    actions=tuple(map(int, input().split()))
+    actions=tuple(map(int, input().split())) #Please enter some node number.
     n_obs, reward, done, info = env.step(actions)
 
     print("actions", actions, "reward", reward, done)
