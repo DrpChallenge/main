@@ -1,13 +1,3 @@
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<script type="text/x-mathjax-config">
- MathJax.Hub.Config({
- tex2jax: {
- inlineMath: [['$', '$'] ],
- displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
- }
- });
-</script>
 
 # Introduction to DRP Environment
 
@@ -70,9 +60,9 @@ The environment information  used for  score calculating is in ``drp_instances.p
 > [!CAUTION]
 > The method of calculating the score has changed as of 2/26.
 
-$$ score = goal\_rate * \frac{1}{dist\_real} $$
-
-,where $$goal\_rate = \frac{N\_reach}{number\_of\_agents} $$ 
+$$score = goal  rate * \frac{1}{dist  real} $$
+ 
+,where $$goal  rate = \frac{N  reach}{number of  agents} $$ 
 and ``dist_real`` means the total distance that all agents have
 covered and ``N_reach`` means the number of agents which have reached their goals.
 *The method of calculating the score may change in the near feature.*
@@ -323,7 +313,7 @@ for epi in range(100):
 
 ```
 
-> [NOTE]
+> [!NOTE]
 > If this is your first time reading this introduction, you can skip from section 4 (Representation of Agent's Current Position) to section 7 (Agent Observation and Action).
 
 <a id ="position"></a>
