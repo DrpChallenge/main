@@ -2,7 +2,7 @@
 from gym.envs.registration import register
 from itertools import product
 
-agent_num = range(1,6)
+agent_num = range(1,30)
 speed = 5
 start_ori_array = []
 goal_array = []
