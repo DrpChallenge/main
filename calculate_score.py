@@ -1,8 +1,10 @@
 import gym
 import time
+import json
+from datetime import datetime
 
-import policy as submitted
-import drp_instances as problems
+import policy.policy as submitted
+import score.problems as problems
 
 ### Parameters
 TEST_EPI_NUM = 100
@@ -39,16 +41,26 @@ def calculate_score(instances, policy):
         # recore runtime of each episode
         time_record = []
         goal_rate_list = []
+        subtotal_score_same_environment = []
         # run environment with submitted policy
         for epi in range(TEST_EPI_NUM):
             start_time = time.time()
-
             n_obs = env.reset()
             goal_checker = False
+            goal_step =  [None] * agent_num
             while not goal_checker:
                 actions = policy(n_obs, env)
-                n_obs, _, done, _ = env.step(actions)
+                n_obs, reward, done, info = env.step(actions)
                 goal_checker = all(done)
+                for i in range(agent_num):
+                    if reward[i] == 100: #goal
+                        goal_step[i] = info["step"]
+                    elif reward[i] == -50: #collision
+                        if goal_step[i] == None:
+                            goal_step[i] = 100
+            for i in range(agent_num):
+                if goal_step[i] == None:
+                    goal_step[i] = 100
             pos = env.get_pos_list()
             goal_agent = 0
             for i in range(len(pos)):
@@ -60,6 +72,7 @@ def calculate_score(instances, policy):
             end_time = time.time()
             time_record.append(end_time - start_time)
             goal_rate_list.append(goalrate)
+            subtotal_score_same_environment.append(sum(goal_step))
 
         # calculate score from logs in environment
         score = {"instance_id": instance["id"]}
@@ -92,30 +105,18 @@ def calculate_score(instances, policy):
         mean_distance = sum_distance / TEST_EPI_NUM
         mean_timestep = sum_timestep / TEST_EPI_NUM
         goalrate = sum(goal_rate_list) / TEST_EPI_NUM
-        
+        mean_goal_step = sum(subtotal_score_same_environment) / TEST_EPI_NUM
         score["runtime"] = mean_runtime
         score["distance"] = mean_distance
         score["time_step"] = mean_timestep
         score["goal_rate"] = goalrate
         score["goal_count"] = goal_rate_list.count(1.0)
-        score["subtotal_score"] = sum(list_of_score) / TEST_EPI_NUM
+        score["subtotal_score"] = mean_goal_step
         scores.append(score)
-
         # delete env
         del env
-
-    return scores
-
-if __name__ == "__main__":
-    import json
-    from datetime import datetime
-
-    scores = calculate_score(problems.instances, submitted.policy)
-
-    # Calculate final score
-    subtotal_scores = [entry["subtotal_score"] for entry in scores]
+    subtotal_scores = [score["subtotal_score"] for score in scores]
     final_score = sum(subtotal_scores) / len(subtotal_scores)
-
     score_dict = {
         "Author": submitted.TEAM_NAME,
         "Scored time": str(datetime.now().strftime("%Y-%m-%H-%M-%S")),
@@ -126,3 +127,7 @@ if __name__ == "__main__":
     json_filename = submitted.TEAM_NAME + ".json"
     with open(json_filename, "w") as f:
         json.dump(score_dict, f, indent=4)
+    return scores,final_score
+
+if __name__ == "__main__":
+    scores,final_score = calculate_score(problems.instances, submitted.policy)
