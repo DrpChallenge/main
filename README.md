@@ -3,7 +3,7 @@
 
 # Index
 * [Installation](#installation)
-* [Competition](#competition_rules)
+* [Usage  ](#usage)
     - [Calculate score](#calculate_score)
     - [Policy.py](#policy.py)
     - [Problem](#Problem)
@@ -17,14 +17,17 @@
     - [6. Definition of Each Action and Processing of Corresponding Rewards](#reward)
     - [7. Agent Observation and action](#observation)
     - [8. The condition which environment is done](#end)
-    - [9. Map](#map)
+    - [9. Plan view of maps](#map)
 <!-- * [Using Epymarl](#using-epymarl) -->
 
 > [!NOTE]
 > If this is your first time reading this introduction, you can skip from section 4 (Representation of Agent's Current Position) to section 7 (Agent Observation and Action).
 
 > [!CAUTION]
-> The method of calculating the score has changed as of 2/26.
+> The method of calculating the score has changed as of 3/01.
+
+> [!NOTE]
+> This DRP Challenge web site is [this link](https://drp-challenge.com/#/overview).Please check.
 
 ## Installation
 
@@ -37,13 +40,12 @@ pip3 install -r ./main/requirements.txt
 
 This environment works in  `python==3.11.4` .
 
-<a id="competition_rules"></a>
+<a id="usage"></a>
 
-## About Drp Competition 
+## Usage  
 
-In this competition, participants have the ability to customize the policy function (``policy.py``), which takes each agent's position information as input and generates the corresponding action for each agent.
-
-If participants wish to modify environment settings, such as the map used and the number of agents, please make changes in ``drp_tester.py``.
+In this competition, participants have the ability to customize the policy function (``policy/policy.py``).(Please see [below](#score))
+If participants wish to modify environment settings, such as the map used and the number of agents, please make changes in ``policy_tester.py``.
 
 <img src = assets\img\competition.png width="85%">
 
@@ -52,20 +54,17 @@ If participants wish to modify environment settings, such as the map used and th
 ### Calculate score
 
 When you want to calculate the score , please run ``calculate_score.py``.
-Once the execution finishes , you can get json files containing the score.
-The environment information  used for  score calculating is in ``drp_instances.py``. *Participants are forbidden from changing this file*
+Once the execution finishes , you can get json files containing the score(named ``final_score``).
+The environment information  used for  score calculating is in ``score/problems.py``. Participants are forbidden from changing this file.
+
+<a id="score"></a>
 
 #### The ways of calculating score
 
 > [!CAUTION]
-> The method of calculating the score has changed as of 2/26.
+> The method of calculating the score has changed as of 3/01.
 
-$$score = goal  rate * \frac{1}{dist  real} $$
- 
-,where $$goal  rate = \frac{N  reach}{number of  agents} $$ 
-and ``dist_real`` means the total distance that all agents have
-covered and ``N_reach`` means the number of agents which have reached their goals.
-*The method of calculating the score may change in the near feature.*
+The score is determined by the total number of steps each agent takes to reach the goal. If agents collide, agents that have not reached the goal are considered to have taken the maximum number of steps, which is 100 steps. The objective is to minimize this number of steps.
 
 Under the same environment settings, execute 100 runs, where the average score across these runs becomes the subtotal score. Repeat the same procedure for all environment settings, and the total of these scores becomes the final score.
 
@@ -75,7 +74,9 @@ Under the same environment settings, execute 100 runs, where the average score a
 
 ### policy.py
 
-These following code is example of policy.py
+Policy function takes each agent's position information as input and generates the corresponding action for each agent.**Participants can add other functions and files to customize environment( unless change the fundamental behavior of the agents and the environment ) but ensure that the format calls the policy function when submitting. Policy function may be associated with a class.**
+
+These following code is example of policy.py.
 
 ```
 import gym
@@ -94,14 +95,13 @@ def policy(n_obs, env):
 
     return actions
 ```
-``TEAM_NAME`` must be the same as the name registered on the DRP website (or the team name if participating as a team).
-``DESCRIPTION`` is optional.
-Participants can change not only policy function but also other function unless change the fundamental behavior of the agents and the environment. 
+``TEAM_NAME`` must be the same as the name registered on the DRP website (or the team name if participating as a team). 
+
 
 <a id="Problem"></a>
 
 ### Problem
-We use several maps for calculate score: ``map_3x3``, ``map_aoba01``,``map_paris``.
+We use several maps for calculate score: ``map_3x3``, ``map_aoba01``,``map_shibuya``.
 We randomly choose agent's start/ goal node so that some problems  may be impossible to reach their goal.
 map_name                              |  number of agent| number of problem
 ----------------------------------|---------------------------------------|---------------------------------------------
@@ -111,9 +111,9 @@ map_3x3             |  4 | 3
 map_aoba01          |  4 | 3
 map_aoba01          |  6 | 4
 map_aoba01          |  8 | 3
-map_paris           |  8 | 3
-map_paris           |  10 | 4
-map_paris           |  12 | 3
+map_shibuya           |  8 | 3
+map_shibuya           |  10 | 4
+map_shibuya           |  12 | 3
 
 <!-- 
 ## The minimum Configuration
@@ -193,7 +193,7 @@ Alternatively, it can be segmented by steps or other criteria. -->
 
 #### 1.File Structure
 <pre>
-drp
+main
 ├── README.md
 ├── drp_env
 │   ├── __init__.py
@@ -201,19 +201,21 @@ drp
 │   ├── EE_map.py
 │   ├── map
 │   └── state_repre
-└──   drpload_test.py
-└──   for_epymarl
-└──   drp_tester.py
-└──   drp_instances.py
-└──   calcilate_score.py
-└──   policy.py
+├──  for_epymarl
+├──  score
+│       ├──  problems.py
+├──policy_tester.py
+├──policy
+│     └──  policy.py
+└── calculate_score.py
 </pre>
 
 name                              |  description
 ----------------------------------|------------------------------------------------------------------------------------
 drp_env                           |  the directory for package __drp_env__
-drpload_test.py                   |  a sample file using drp_env
 for_epymarl                       |  files required to work with epymarl
+score                             |  files required to calculate score
+policy                            |  your workspace
 
 Directories/files in drp_env:
 
@@ -228,10 +230,10 @@ state_repre                       |  manage observation of environments
 Important files relate to this competition
 name                              |  description
 ----------------------------------|------------------------------------------------------------------------------------
-drp_tester.py                     |  test your policy.py code 
-drp_instances.py                  |  Information about the map we use to calculate the score
-calculate_score.py                |  calculate the score using policy.py
-policy.py                         |  returns agent's action according to the environment
+policy_tester.py                     |  test your policy.py code 
+score/problems.py                  |  Information about the map we use to calculate the score
+score/calculate_score.py                |  calculate the score using policy.py
+policy/policy.py                         |  returns agent's action according to the environment
 
 
 <a id ="variable"></a>
@@ -250,22 +252,9 @@ policy.py                         |  returns agent's action according to the env
 
 * `collision`: Default is "terminated." If changed to "bounceback," the 'done' in the step function becomes False when collision is detected.
 
-The following code shows how to set these variables.
-```
-env = gym.make( 
-        "drp_env:drp-2agent_map_3x3-v2",
-        state_repre_flag="onehot_fov", #Do not change
-        goal_array=[0,2], # Set goal array
-        start_ori_array=[3,6], # Set start array
-        speed = 5, # Set agent's speed
-        reward_list =  {"goal": 100, "collision": -10, "wait": -10, "move": -1}
-        # set reward_list
-    )
-```
-
 <a id ="functions"></a>
 
-#### 3. Functions in the Drp Environment
+#### 3. Functions in the DRP Environment
 
 - `get_avail_agent_actions`: Searches for actions available to the agent
 
@@ -283,7 +272,7 @@ env = gym.make(
 
 - `get_log` : the results of each run can be displayed.
 
-The following example uses some of these functions.
+<!-- The following example uses some of these functions.
 
 ```
 import gym
@@ -298,7 +287,7 @@ def policy(n_obs, env):  # Random Policy
     return actions
 
 env = gym.make("drp_env:drp-2agent_map_3x3-v2", state_repre_flag="onehot_fov")
-for epi in range(100):
+for epi in range(3):
     n_obs = env.reset()
     goal_checker = False
     while not goal_checker:
@@ -307,14 +296,15 @@ for epi in range(100):
         n_obs, _, done, _ = env.step(actions)
         goal_checker = all(done)
         print(env.get_pos_list())
-for epi in range(100):
+for epi in range(3):
     log = env.get_log(epi + 1)
     print(log) 
 
-```
+``` -->
 
 > [!NOTE]
 > If this is your first time reading this introduction, you can skip from section 4 (Representation of Agent's Current Position) to section 7 (Agent Observation and Action).
+
 
 <a id ="position"></a>
 
@@ -326,13 +316,8 @@ for epi in range(100):
 <a id ="obs"></a>
 
 - `Observation (obs)`: Primarily represented as a numpy.array. This object divide into two parts : `self position` and `goal position`.  `self position` represents where the agent is and `goal position` represents where the agent`s goal is.
-The element represents the information of node "n". When an agent exists in node "n", the nth element of obs is set to 1. When an agent exists between node "n" and node "n+1", the sum of the "n" and "n+1" elements of obs becomes 1. In this case, the ratio of the distances between node "n+1" and the agent and node "n" and the agent is reflected in the numbers of the respective elements. 
-*Example1*: [0, 1, 0] indicates the presence of an agent at node "1". [0.77, 0.23, 0] indicates the presence of an agent on the edge between node "1" and node "0". In this case, the agent is closer to node "0".
-*Example2*: If we set the environment which is the *map_3x3* and *2 agents*, the obs will look like:
-\[\[0.   0.   0.   0.   0.19 0.   0.   0.81 0.   0.   1.   0.   0.   0. 0.   0.   0.   0.  ]
-[0.   0.   0.   0.   0.81 0.   0.   0.19 0.   1.   0.   0.   0.   0.  0.   0.   0.   0.  ]]
-which means that first agent is in the edge(4,7) and their goal node is 2.
-
+The element represents the information of node "n". When an agent exists in node "n", the nth element of obs is set to 1. 
+<!-- When an agent exists between node "n" and node "n+1", the sum of the "n" and "n+1" elements of obs becomes 1. In this case, the ratio of the distances between node "n+1" and the agent and node "n" and the agent is reflected in the numbers of the respective elements.  -->
 
 <a id ="step"></a>
 
@@ -340,7 +325,7 @@ which means that first agent is in the edge(4,7) and their goal node is 2.
 
 The Step function, roughly speaking, is a function that takes a list containing the actions (node numbers) taken by each agent at this step as input and reflects the environment after taking those actions. As output, it returns information such as the positions of each agent and whether they have reached their goals.
 
-- `Input`: action, which contains the actions (node numbers) taken by each agent. *Example*: if there are two agents in the environment, then the action would look like [3,5].
+- `Input`: action, which contains the actions (node numbers) taken by each agent.
 - `Output`:
      - `obs`: [Please see above](#obs)
      - `reward`: Represents the each reward received by single agent.
@@ -353,16 +338,13 @@ The Step function, roughly speaking, is a function that takes a list containing 
           - `step` : The number of steps from agent starts
           - `wait` : When agent be wait state, this count increases by one.
 
-([execution  example](#example_some_varibales_and_function))
-
 <a id = "reward"></a>
 
 #### 6. Definition of Each Action and Processing of Corresponding Rewards
 
 * Wait: Agent can be "wait" state only when it is in node. 
 * Collision:Agents are considered to have collided if the distance between each agent is less than or equal to 5.
-* Goal:The step at which a drone reaches its destination is referred to as the "goal" step. An agent that has reached its goal continues to be in a "wait" state at that destination. For example, when one agent reaches its goal and the remaining agents are moving towards their respective destinations, the agent that has reached its goal is in a "goal" state at the step it reached the goal, but afterward, it remains in a "wait" state.
-
+* Goal:The step at which a drone reaches its destination is referred to as the "goal" step. An agent that has reached its goal continues to be in a "wait" state at that destination until the environment is done .  
 
 Rewards are modified based on the values defined in `reward_list`. "goal" rewards are as defined in `reward_list`. For other actions, rewards are the values defined in `reward_list` multiplied by __the agent's speed__.
 
@@ -384,7 +366,7 @@ If the environment meets any of these condition, the environment is done at the 
 
 <a  id = map></a>
 
-#### 8. Map
+#### 9. Plan view of maps
 
 #### map_3x3
 <img src = assets\img\map3_3.png width="55%">
@@ -392,9 +374,8 @@ If the environment meets any of these condition, the environment is done at the 
 #### map_aoba01
 <img src = assets\img\map_aoba01.png width="55%">
 
-#### map_osaka
-<img src = assets\img\map_osaka.png width="55%">
-
+#### map_shibuya
+<img src = assets\img\map_shibuya.png width="55%">
 
 
 <a  id = using-epymarl></a>
