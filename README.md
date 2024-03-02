@@ -93,38 +93,13 @@ Thus, the final score is the summation of 30 problems socres.
 Once your (``policy/policy.py``) has been depolyed, you can run ``calculate_score.py``, which will outputs a json file (your_team_name.json) including the score (named ``final_score``).
 
 
-<a id="Problem"></a>
-
-
-<!-- #### Visualization of Movement
-Check how the trained model behaves in practice.
-In this Drp environment, the simulation ends when a drone collides with another drone or when all agents reach their goals.
-
-<a id="example_some_varibales_and_function"></a>
-
-```
-vec_env = model.get_env()
-obs = vec_env.reset() #Setting init
-done = False
-while done == False:
-    env.render()
-    actions = []
-    for agi in range(env.agent_num):
-        _, avail_actions = env.get_avail_agent_actions(agi,env.n_actions)
-        actions.append(random.choice(avail_actions))
-
-    n_obs, reward, done, info = env.step(actions)
-``` -->
-<!-- 
-Alternatively, it can be segmented by steps or other criteria. -->
-
 <a id ="environment"></a>
 
-### The Drone Delivery Routing Problems Environment
+## Additional Info
 
 <a id ="file"></a>
 
-#### 1.File Structure
+### 1.File Structure
 <pre>
 main
 ├── README.md
@@ -146,19 +121,8 @@ main
 name                              |  description
 ----------------------------------|------------------------------------------------------------------------------------
 drp_env                           |  the directory for package __drp_env__
-for_epymarl                       |  files required to work with epymarl
 score                             |  files required to calculate score
 policy                            |  your workspace
-
-Directories/files in drp_env:
-
-name                              |  description
-----------------------------------|------------------------------------------------------------------------------------
-\_\_init\_\_.py                   |  register environments
-drp_env.py                        |  environment with gym structure
-EE_map.py                         |  process related to network structure
-map                               |  csv files about map information
-state_repre                       |  manage observation of environments
 
 Important files relate to this competition
 name                              |  description
@@ -184,6 +148,8 @@ policy/policy.py                         |  returns agent's action according to 
 * `reward_list`: Rewards given when an action is taken by the drone. Default: `{"goal": 100, "collision": -10, "wait": -10, "move": -1}` 
 
 * `collision`: Default is "terminated." If changed to "bounceback," the 'done' in the step function becomes False when collision is detected.
+  
+* We set one episode with maximum 100 steps, where one episode will terminate once a collition happens or all drones reach their goals or the time (100 steps) is up.
 
 <a id ="functions"></a>
 
@@ -205,35 +171,6 @@ policy/policy.py                         |  returns agent's action according to 
 
 - `get_log` : the results of each run can be displayed.
 
-<!-- The following example uses some of these functions.
-
-```
-import gym
-import random
-
-def policy(n_obs, env):  # Random Policy
-    actions = []
-    for agi in range(env.agent_num):
-        _, avail_actions = env.get_avail_agent_actions(agi, env.n_actions)
-        actions.append(random.choice(avail_actions))
-
-    return actions
-
-env = gym.make("drp_env:drp-2agent_map_3x3-v2", state_repre_flag="onehot_fov")
-for epi in range(3):
-    n_obs = env.reset()
-    goal_checker = False
-    while not goal_checker:
-        env.render()
-        actions = policy(n_obs, env)
-        n_obs, _, done, _ = env.step(actions)
-        goal_checker = all(done)
-        print(env.get_pos_list())
-for epi in range(3):
-    log = env.get_log(epi + 1)
-    print(log) 
-
-``` -->
 
 > [!NOTE]
 > If this is your first time reading this introduction, you can skip from section 4 (Representation of Agent's Current Position) to section 7 (Agent Observation and Action).
