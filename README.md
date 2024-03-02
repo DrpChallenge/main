@@ -87,7 +87,6 @@ map_shibuya           |  8 | 3
 map_shibuya           |  10 | 4
 map_shibuya           |  12 | 3
 
-<!-- 
 
 Thus, the final score is the summation of 30 problems socres.
 
