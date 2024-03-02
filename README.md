@@ -103,34 +103,19 @@ Once your (``policy/policy.py``) has been depolyed, you can run ``calculate_scor
 <pre>
 main
 ├── README.md
-├── drp_env
+├── drp_env # the directory for drp challenge environment
 │   ├── __init__.py
 │   ├── drp_env.py 
 │   ├── EE_map.py
 │   ├── map
 │   └── state_repre
-├──  for_epymarl
-├──  score
-│       ├──  problems.py
-├──policy_tester.py
-├──policy
-│     └──  policy.py
-└── calculate_score.py
+├──  score  
+│       ├──  problems.py # 30 problems are fixed for evaluation
+├──policy_tester.py  # test your developed policy 
+├──policy # your workspace
+│     └──  policy.py # your development
+└── calculate_score.py  # output evaluation result in a json file
 </pre>
-
-name                              |  description
-----------------------------------|------------------------------------------------------------------------------------
-drp_env                           |  the directory for package __drp_env__
-score                             |  files required to calculate score
-policy                            |  your workspace
-
-Important files relate to this competition
-name                              |  description
-----------------------------------|------------------------------------------------------------------------------------
-policy_tester.py                     |  test your policy.py code 
-score/problems.py                  |  Information about the map we use to calculate the score
-score/calculate_score.py                |  calculate the score using policy.py
-policy/policy.py                         |  returns agent's action according to the environment
 
 
 <a id ="variable"></a>
