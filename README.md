@@ -63,7 +63,7 @@ You can test your developed (``policy/policy.py``) by loading it in ``policy_tes
 #### Score for each problem
 The score is determined by the total number of steps each agent takes to reach the goal. If agents collide, agents that have not reached the goal are considered to have taken the maximum number of steps, which is 100 steps. The objective is to minimize the summation of all drones' steps taken.
 
-#### Final score
+#### Final score of all problems
 We use three maps for evaluations: ``map_3x3``, ``map_aoba01``,``map_shibuya``.
 <p align="center">
 <img src = assets\img\map3_3.png width="25%">
@@ -72,9 +72,8 @@ We use three maps for evaluations: ``map_3x3``, ``map_aoba01``,``map_shibuya``.
 </p>
 
 Each map will be evaluated on various drone numbers and various start-goal pairs.
-We call one pattern (fix map, drone number, and start-goal pair) as a problem, there are totally 30 problems, as shown in the following table.
+We call one pattern (fix map, drone number, and start-goal pair) as a problem, there are totally 30 problems which written in ``score/problems.py``,as shown in the following table. (Participants are forbidden to altering this file)
 
-Thus, the final score is the summation of 30 problems socres.
 
 map_name                              |  number of agent| number of problem
 ----------------------------------|---------------------------------------|---------------------------------------------
@@ -89,11 +88,9 @@ map_shibuya           |  10 | 4
 map_shibuya           |  12 | 3
 
 <!-- 
+Thus, the final score is the summation of 30 problems socres.
 
-
-When you want to calculate the score , please run ``calculate_score.py``.
-Once the execution finishes , you can get json files containing the score(named ``final_score``).
-The environment information  used for  score calculating is in ``score/problems.py``. Participants are forbidden from changing this file.
+Once your (``policy/policy.py``) has been depolyed, you can run ``calculate_score.py``, which will outputs a json file (your_team_name.json) including the score (named ``final_score``).
 
 <a id="score"></a>
 
