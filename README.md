@@ -59,11 +59,11 @@ You can test your developed (``policy/policy.py``) by loading it in ``policy_tes
 
 <a id="calculate_score"></a>
 
-### Evaluation
-#### Score for each problem
+## Evaluation
+### Score for each problem
 The score is determined by the total number of steps each agent takes to reach the goal. If agents collide, agents that have not reached the goal are considered to have taken the maximum number of steps, which is 100 steps. The objective is to minimize the summation of all drones' steps taken.
 
-#### Final score of all problems
+### Final score of all problems
 We use three maps for evaluations: ``map_3x3``, ``map_aoba01``,``map_shibuya``.
 <p align="center">
 <img src = assets\img\map3_3.png width="25%">
@@ -88,6 +88,7 @@ map_shibuya           |  10 | 4
 map_shibuya           |  12 | 3
 
 <!-- 
+
 Thus, the final score is the summation of 30 problems socres.
 
 Once your (``policy/policy.py``) has been depolyed, you can run ``calculate_score.py``, which will outputs a json file (your_team_name.json) including the score (named ``final_score``).
