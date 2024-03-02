@@ -1,7 +1,7 @@
 
-# Introduction to DRP Environment
+# Codes of [DRP Challenge](https://drp-challenge.com/#/overview) 
 
-# Index
+# Outline
 * [Installation](#installation)
 * [Usage  ](#usage)
     - [Calculate score](#calculate_score)
@@ -25,9 +25,6 @@
 
 > [!CAUTION]
 > The method of calculating the score has changed as of 3/01.
-
-> [!NOTE]
-> This DRP Challenge web site is [this link](https://drp-challenge.com/#/overview).Please check.
 
 ## Installation
 This environment works in  `python==3.11.4` .
