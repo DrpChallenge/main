@@ -41,7 +41,7 @@ def policy_test(policy, agent_num, map_name, reward_list, start, goal, render):
     
 if __name__ == "__main__":
     agent_num = 3
-    map_name = "map_shibuya"
+    map_name = "map_aoba01"
     reward_list = {"goal": 100, "collision": -10, "wait": -10, "move": -1}
     goal = [3, 6,1]
     start = [0, 2,4]
