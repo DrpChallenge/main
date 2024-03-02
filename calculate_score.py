@@ -12,16 +12,17 @@ TEST_EPI_NUM = 100
 
 def calculate_score(instances, policy):
     """
-    Evaluation criteria
+    Once your policy has been developed, 
+    you can run this file without any edition.
+
+    It outputs the following 4 criterias for each problem in a json file
     1. runtime: mean of the runtime per each episode
     2. distance: mean of total moving distance of every agents
     3. time_step: mean of the termination time step of each episode
     4. goal_rate: goal rate
 
-    Why mean?
-    If the submitted policy is stochastic one,
-    then we have to evaluate its expected performance,
-    not one snapshot performance.
+    However, we only take "time_step" of each problem as the final evaluation index.
+
     """
     scores = []
     for instance in instances:
