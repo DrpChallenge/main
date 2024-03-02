@@ -50,12 +50,11 @@ Success :tada::tada: Let's start to develop algorithms for DRP challenge!
 
 <a id="usage"></a>
 
-## Usage  
+## Development  
 
-In this competition, participants have the ability to customize the policy function (``policy/policy.py``).(Please see [below](#score))
-If participants wish to modify environment settings, such as the map used and the number of agents, please make changes in ``policy_tester.py``.
-
-<img src = assets\img\competition.png width="85%">
+In this competition, participants are expected to develop (``policy/policy.py``), which is essentially a mapping from input(global state: includes all drones' obseravations) to output(joint action: includes all drones' actions) at each step. 
+The goal is to maximize [score](#score)).
+You can test your developed (``policy/policy.py``) by loading it in ``policy_tester.py``.
 
 <a id="calculate_score"></a>
 
