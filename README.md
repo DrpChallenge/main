@@ -53,25 +53,43 @@ Success :tada::tada: Let's start to develop algorithms for DRP challenge!
 ## Development  
 
 In this competition, participants are expected to develop (``policy/policy.py``), which is essentially a mapping from input(global state: includes all drones' obseravations) to output(joint action: includes all drones' actions) at each step. 
+
 The goal is to maximize [score](#score)).
 You can test your developed (``policy/policy.py``) by loading it in ``policy_tester.py``.
 
 <a id="calculate_score"></a>
 
-### Calculate score
+### Evaluation
+#### Score for each problem
+The score is determined by the total number of steps each agent takes to reach the goal. If agents collide, agents that have not reached the goal are considered to have taken the maximum number of steps, which is 100 steps. The objective is to minimize the summation of all drones' steps taken.
+
+#### Final score
+We use three maps for evaluations: ``map_3x3``, ``map_aoba01``,``map_shibuya``.
+Each map will be evaluated on various drone numbers and various start-goal pairs.
+We call one pattern (fix map, drone number, and start-goal pair) as a problem, there are totally 30 problems, as shown in the following table.
+
+Thus, the final score is the summation of 30 problems socres.
+
+map_name                              |  number of agent| number of problem
+----------------------------------|---------------------------------------|---------------------------------------------
+map_3x3             |  2 | 3
+map_3x3             |  3 | 4
+map_3x3             |  4 | 3
+map_aoba01          |  4 | 3
+map_aoba01          |  6 | 4
+map_aoba01          |  8 | 3
+map_shibuya           |  8 | 3
+map_shibuya           |  10 | 4
+map_shibuya           |  12 | 3
+
+<!-- 
+
 
 When you want to calculate the score , please run ``calculate_score.py``.
 Once the execution finishes , you can get json files containing the score(named ``final_score``).
 The environment information  used for  score calculating is in ``score/problems.py``. Participants are forbidden from changing this file.
 
 <a id="score"></a>
-
-#### The ways of calculating score
-
-> [!CAUTION]
-> The method of calculating the score has changed as of 3/01.
-
-The score is determined by the total number of steps each agent takes to reach the goal. If agents collide, agents that have not reached the goal are considered to have taken the maximum number of steps, which is 100 steps. The objective is to minimize this number of steps.
 
 Under the same environment settings, execute 100 runs, where the average score across these runs becomes the subtotal score. Repeat the same procedure for all environment settings, and the total of these scores becomes the final score.
 
