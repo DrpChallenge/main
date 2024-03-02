@@ -19,12 +19,13 @@
     - [8. The condition which environment is done](#end)
     - [9. Plan view of maps](#map)
 <!-- * [Using Epymarl](#using-epymarl) -->
-
+<!--
 > [!NOTE]
 > If this is your first time reading this introduction, you can skip from section 4 (Representation of Agent's Current Position) to section 7 (Agent Observation and Action).
 
 > [!CAUTION]
 > The method of calculating the score has changed as of 3/01.
+-->
 
 ## Installation
 This environment works in  `python==3.11.4` .
