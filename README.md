@@ -65,6 +65,17 @@ The score is determined by the total number of steps each agent takes to reach t
 
 #### Final score
 We use three maps for evaluations: ``map_3x3``, ``map_aoba01``,``map_shibuya``.
+<p align="center">
+#### map_3x3
+<img src = assets\img\map3_3.png width="25%">
+
+#### map_aoba01
+<img src = assets\img\map_aoba01.png width="25%">
+
+#### map_shibuya
+<img src = assets\img\map_shibuya.png width="25%">
+</p>
+
 Each map will be evaluated on various drone numbers and various start-goal pairs.
 We call one pattern (fix map, drone number, and start-goal pair) as a problem, there are totally 30 problems, as shown in the following table.
 
@@ -388,19 +399,6 @@ If the environment meets any of these condition, the environment is done at the 
 - Collision happens.
 - The number of steps over 100.
 - All agents reach goal.
-
-<a  id = map></a>
-
-#### 9. Plan view of maps
-
-#### map_3x3
-<img src = assets\img\map3_3.png width="55%">
-
-#### map_aoba01
-<img src = assets\img\map_aoba01.png width="55%">
-
-#### map_shibuya
-<img src = assets\img\map_shibuya.png width="55%">
 
 
 <a  id = using-epymarl></a>
