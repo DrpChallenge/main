@@ -30,15 +30,20 @@
 > This DRP Challenge web site is [this link](https://drp-challenge.com/#/overview).Please check.
 
 ## Installation
-
-Please execute the following code.
+This environment works in  `python==3.11.4` .
+We recommend you to create an exclusive environment like
+```
+conda create -n drpdev python=3.11.4
+conda activate drpdev    
+```
+before executing the following code.
 ```
 git clone https://github.com/DrpChallenge/main.git
 pip3 install -e ./main
 pip3 install -r ./main/requirements.txt
 ```
 
-This environment works in  `python==3.11.4` .
+
 
 <a id="usage"></a>
 
