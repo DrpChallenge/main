@@ -46,7 +46,7 @@ Then it will show the following GUI, if you run `policy_tester.py` .
 
 <img src = assets\img\drpexample.png width="25%">
 
-Success! :tada::tada: Let's start to develop algorithms for DRP challenge!
+Success :tada::tada: Let's start to develop algorithms for DRP challenge!
 
 <a id="usage"></a>
 
