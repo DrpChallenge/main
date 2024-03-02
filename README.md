@@ -43,9 +43,9 @@ pip3 install -e ./main
 pip3 install -r ./main/requirements.txt
 ```
 Then it will show the following GUI, if you run `policy_tester.py` .
-<img src = assets\img\drpexample.png width="85%">
+<img src = assets\img\drpexample.png width="55%">
 
-Success :tada: Let's start to develop algorithms for DRP challenge!
+Success! :tada::tada: Let's start to develop algorithms for DRP challenge!
 
 <a id="usage"></a>
 
