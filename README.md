@@ -68,10 +68,8 @@ We use three maps for evaluations: ``map_3x3``, ``map_aoba01``,``map_shibuya``.
 <p align="center">
 #### map_3x3
 <img src = assets\img\map3_3.png width="25%">
-
 #### map_aoba01
 <img src = assets\img\map_aoba01.png width="25%">
-
 #### map_shibuya
 <img src = assets\img\map_shibuya.png width="25%">
 </p>
