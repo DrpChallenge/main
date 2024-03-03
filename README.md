@@ -6,11 +6,11 @@
 * [Development](#development)
 * [Evaluation](#evaluation)
 * [Appendix](#appendix)
-    - [1. File Structure](#file)
+<!--   - [1. File Structure](#file)
     - [2. Default hyper-parameters in gym.make()](#gymmake)
     - [3. The functions in class of 'env'](#functions)
     - [4. About Step Function](#step)
-
+-->
 <!--
 > [!NOTE]
 > If this is your first time reading this introduction, you can skip from section 4 (Representation of Agent's Current Position) to section 7 (Agent Observation and Action).
