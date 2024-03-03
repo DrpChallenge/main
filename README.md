@@ -119,6 +119,15 @@ main
 <a id ="variable"></a>
 
 #### 2. Variables for gym.make()
+```
+    env = gym.make(
+        "drp_env:drp-" + str(agent_num) + "agent_" + map_name + "-v2",
+        state_repre_flag="onehot_fov",
+        reward_list=reward_list,
+        goal_array=goal,
+        start_ori_array=start,
+    )
+```
 
 * `speed`: Represents the speed of all agents movement. Default is 5.
 
