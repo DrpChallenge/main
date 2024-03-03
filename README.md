@@ -3,22 +3,14 @@
 
 # Outline
 * [Installation](#installation)
-* [Usage  ](#usage)
-    - [Calculate score](#calculate_score)
-    - [Policy.py](#policy.py)
-    - [Problem](#Problem)
-<!-- * [The minimum Configuration](#Minimum) -->
-* [The Environments](#environment)
+* [Development](#development)
+* [Evaluation](#evaluation)
+* [Appendix](#appendix)
     - [1. File Structure](#file)
-    - [2. Variables for gym.make()](#variable)
-    - [3. Functions in the Drp Environment](#functions)
-    - [4. Representation of Agent's Current Position](#position)
-    - [5. The Step Function](#step)
-    - [6. Definition of Each Action and Processing of Corresponding Rewards](#reward)
-    - [7. Agent Observation and action](#observation)
-    - [8. The condition which environment is done](#end)
-    - [9. Plan view of maps](#map)
-<!-- * [Using Epymarl](#using-epymarl) -->
+    - [2. Default hyper-parameters in gym.make()](#gymmake)
+    - [3. The functions in class of 'env'](#functions)
+    - [4. About Step Function](#step)
+
 <!--
 > [!NOTE]
 > If this is your first time reading this introduction, you can skip from section 4 (Representation of Agent's Current Position) to section 7 (Agent Observation and Action).
@@ -65,8 +57,7 @@ The element represents the information of node "n". When an agent exists in node
 The goal is to maximize [score](#score)) without collision happens.
 You can test your developed (``policy/policy.py``) by loading it in ``policy_tester.py``.
 
-<a id="calculate_score"></a>
-
+<a id="evaluation"></a>
 ## Evaluation
 ### Score for each problem
 The score is determined by the total number of steps each agent takes to reach the goal. If agents collide, agents that have not reached the goal are considered to have taken the maximum number of steps, which is 100 steps. The objective is to minimize the summation of all drones' steps taken.
@@ -102,9 +93,8 @@ However, if collision happens, the score of that map will not be countted.
 Once your (``policy/policy.py``) has been depolyed, you can run ``calculate_score.py``, which will outputs a json file (your_team_name.json) including the score (named ``final_score``).
 
 
-<a id ="environment"></a>
-
-## Additional Info
+<a id ="appendix"></a>
+## Appendix
 
 <a id ="file"></a>
 
@@ -127,7 +117,7 @@ main
 </pre>
 
 
-<a id ="variable"></a>
+<a id ="gymmake"></a>
 
 #### 2. Default hyper-parameters in gym.make()
 Although drp env can be easily constructed by the following codes, there are other hyper-parameters about env can be customized.
@@ -181,10 +171,8 @@ Since the class of 'env' is also as an input passed to policy, there are many fu
 - `env.G`: Returns the map informations including nodes and edges.　For example, `Node number`: is the node numbers in the rendered representation correspond to the node numbers. `Edge number`: Consists of the numbers of the two nodes at both ends of the edge. If there is an edge between node 3 and node 5, the edge number is (3, 5).
 
 
-
 <a id ="step"></a>
-
-#### 5. About env.step() 
+#### 4. About env.step() 
 
 - `Input`: action, which contains the actions (node numbers) taken by each agent.
 - `Output`:
