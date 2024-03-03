@@ -118,7 +118,8 @@ main
 
 <a id ="variable"></a>
 
-#### 2. Variables for gym.make()
+#### 2. Default hyper-parameters in gym.make()
+Although drp env can be easily constructed by the following codes, there are other hyper-parameters about env can be customized.
 ```
     env = gym.make(
         "drp_env:drp-" + str(agent_num) + "agent_" + map_name + "-v2",
@@ -128,26 +129,29 @@ main
         start_ori_array=start,
     )
 ```
+You can be free to alter the following hyper-parameters in your development, but we will keep the default values to evaluate
 
-* `speed`: Represents the speed of all agents movement. Default is 5.
+* `speed`: Represents the distance of moving in one step (all drones have same speeds and default value is 5). 
 
-* `start_ori_array`: Starting positions. If not specified, they are randomly chosen.
+* `start_ori_array`: Starting positions. If not specified, they are randomly generated.
 
-* `goal_array`: Goal positions. If not specified, they are randomly chosen. Don't conflict with `start_ori_array`.
+* `goal_array`: Goal positions. If not specified, they are randomly generated. 
 
-* `visu_delay`: Settings for the render function ( visualization of drone locations ). Default is 0.3.
+* `visu_delay`: Waiting time for one step. Default is 0.3s.
 
-* `reward_list`: Rewards given when an action is taken by the drone. Default: `{"goal": 100, "collision": -10, "wait": -10, "move": -1}` 
+* `reward_list`: Rewards given when an action is taken by the drone. Default values are : `{"goal": 100, "collision": -10, "wait": -10, "move": -1}` 
 
-* `collision`: Default is "terminated." If changed to "bounceback," the 'done' in the step function becomes False when collision is detected.
+* `collision`: Default is "terminated" mode where current episode terminate once collision happens. The another mode is  "bounceback," where the drones would bounceback when collision happens. 
   
-* We set one episode with maximum 100 steps, where one episode will terminate once a collition happens or all drones reach their goals or the time (100 steps) is up.
+* `time_limit`: We set one episode with maximum 100 steps. 
 
 <a id ="functions"></a>
 
-#### 3. Functions in the DRP Environment
+#### 3. The functions in class of 'env'  
+Since the class of 'env' is also as an input passed to policy, there are many functions can be used.
 
-- `get_avail_agent_actions`: Searches for actions available to the agent
+- `env.get_avail_agent_actions()`: Searches for actions available for all drones
+<--
 
 - `reset`: Sets the initial values and destination for the agent. If not specified, random nodes are set.
 
@@ -156,16 +160,14 @@ main
 - `render`: Visualizes the state of agents at each step.
 
 - `close`: `print('Environment CLOSE')`
-
-- `get_pos_list`: Returns the current positions and states of all agents in a dictionary-list format.
-
 - `step`: [Please see below](#step)
 
 - `get_log` : the results of each run can be displayed.
+-->
 
+- `env.get_pos_list()`: Returns the current positions and states of all agents in a dictionary-list format.
 
-> [!NOTE]
-> If this is your first time reading this introduction, you can skip from section 4 (Representation of Agent's Current Position) to section 7 (Agent Observation and Action).
+- `env.G`: Returns the map informations including nodes and edges.
 
 
 <a id ="position"></a>
