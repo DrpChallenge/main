@@ -52,7 +52,17 @@ Success :tada::tada: Let's start to develop algorithms for DRP challenge!
 
 In this competition, participants are expected to develop (``policy/policy.py``), which is essentially a mapping from input(global state: includes all drones' obseravations) to output(joint action: includes all drones' actions) at each step. 
 
-The goal is to maximize [score](#score)).
+- `Observation (obs)`: Primarily represented as a numpy.array. This object divide into two parts : `self position` and `goal position`.  `self position` represents where the agent is and `goal position` represents where the agent`s goal is.
+The element represents the information of node "n". When an agent exists in node "n", the nth element of obs is set to 1. 
+<!-- When an agent exists between node "n" and node "n+1", the sum of the "n" and "n+1" elements of obs becomes 1. In this case, the ratio of the distances between node "n+1" and the agent and node "n" and the agent is reflected in the numbers of the respective elements.  -->
+
+**Termination Condition** Current episode will terminate once it meets any of the following 3 conditions. 
+- Collision happens.
+- The number of steps over 100.
+- All agents reach goal.
+
+**Goal** 
+The goal is to maximize [score](#score)) without collision happens.
 You can test your developed (``policy/policy.py``) by loading it in ``policy_tester.py``.
 
 <a id="calculate_score"></a>
@@ -87,6 +97,7 @@ map_shibuya           |  12 | 3
 
 
 Thus, the final score is the summation of 30 problems socres.
+However, if collision happens, the score of that map will not be countted.
 
 Once your (``policy/policy.py``) has been depolyed, you can run ``calculate_score.py``, which will outputs a json file (your_team_name.json) including the score (named ``final_score``).
 
@@ -167,27 +178,13 @@ Since the class of 'env' is also as an input passed to policy, there are many fu
 
 - `env.get_pos_list()`: Returns the current positions and states of all agents in a dictionary-list format.
 
-- `env.G`: Returns the map informations including nodes and edges.
+- `env.G`: Returns the map informations including nodes and edges.　For example, `Node number`: is the node numbers in the rendered representation correspond to the node numbers. `Edge number`: Consists of the numbers of the two nodes at both ends of the edge. If there is an edge between node 3 and node 5, the edge number is (3, 5).
 
 
-<a id ="position"></a>
-
-#### 4. Representation of Agent's Current Position
-
-- `Node number`: Defined by the map being used. The node numbers in the rendered representation correspond to the node numbers.
-- `Edge number`: Consists of the numbers of the two nodes at both ends of the edge. If there is an edge between node 3 and node 5, the edge number is (3, 5).
-
-<a id ="obs"></a>
-
-- `Observation (obs)`: Primarily represented as a numpy.array. This object divide into two parts : `self position` and `goal position`.  `self position` represents where the agent is and `goal position` represents where the agent`s goal is.
-The element represents the information of node "n". When an agent exists in node "n", the nth element of obs is set to 1. 
-<!-- When an agent exists between node "n" and node "n+1", the sum of the "n" and "n+1" elements of obs becomes 1. In this case, the ratio of the distances between node "n+1" and the agent and node "n" and the agent is reflected in the numbers of the respective elements.  -->
 
 <a id ="step"></a>
 
-#### 5. The Step Function
-
-The Step function, roughly speaking, is a function that takes a list containing the actions (node numbers) taken by each agent at this step as input and reflects the environment after taking those actions. As output, it returns information such as the positions of each agent and whether they have reached their goals.
+#### 5. About env.step() 
 
 - `Input`: action, which contains the actions (node numbers) taken by each agent.
 - `Output`:
@@ -201,32 +198,6 @@ The Step function, roughly speaking, is a function that takes a list containing 
           - `distance_from_start` : Distance form start 
           - `step` : The number of steps from agent starts
           - `wait` : When agent be wait state, this count increases by one.
-
-<a id = "reward"></a>
-
-#### 6. Definition of Each Action and Processing of Corresponding Rewards
-
-* Wait: Agent can be "wait" state only when it is in node. 
-* Collision:Agents are considered to have collided if the distance between each agent is less than or equal to 5.
-* Goal:The step at which a drone reaches its destination is referred to as the "goal" step. An agent that has reached its goal continues to be in a "wait" state at that destination until the environment is done .  
-
-Rewards are modified based on the values defined in `reward_list`. "goal" rewards are as defined in `reward_list`. For other actions, rewards are the values defined in `reward_list` multiplied by __the agent's speed__.
-
-<a  id = observation></a>
-
-#### 7. Agent Observation and action 
-
-Be careful, each agent usually doesn't know the information of other agents. Only when agents are on adjacent edges, they know each other's locations. When an agent is on an edge, it cannot change directions. This means that the agent cannot backtrack when it is on an edge and another agent came to agent's destination node.
-
-<a  id = end></a>
-
-#### 8. The condition which environment is done
-
-If the environment meets any of these condition, the environment is done at the step when it happens.
-
-- Collision happens.
-- The number of steps over 100.
-- All agents reach goal.
 
 
 <a  id = using-epymarl></a>
