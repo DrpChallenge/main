@@ -151,7 +151,7 @@ You can be free to alter the following hyper-parameters in your development, but
 Since the class of 'env' is also as an input passed to policy, there are many functions can be used.
 
 - `env.get_avail_agent_actions()`: Searches for actions available for all drones
-<--
+<!--
 
 - `reset`: Sets the initial values and destination for the agent. If not specified, random nodes are set.
 
