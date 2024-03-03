@@ -1,7 +1,7 @@
 
 # Codes of DRP Challenge ([Website](https://drp-challenge.com/#/overview))
 
-# Outline
+## Outline
 * [Installation](#installation)
 * [Development](#development)
 * [Evaluation](#evaluation)
