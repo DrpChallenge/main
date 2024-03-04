@@ -10,18 +10,21 @@ import score.problems as problems
 TEST_EPI_NUM = 10
 ###############
 
+
 def calculate_score(instances, policy):
     """
-    Once your policy has been developed, 
+    Once your policy has been developed,
     you can run this file without any edition.
 
-    It outputs the following 4 criterias for each problem in a json file
+    It outputs the following 6 criteria for each problem in a json file
     1. runtime: mean of the runtime per each episode
     2. distance: mean of total moving distance of every agents
     3. time_step: mean of the termination time step of each episode
     4. goal_rate: goal rate
+    5. goal_count: number of episode which all agents reach their goal
+    6. subtotal_score: the average of the scores at the same pattern
 
-    However, we only take "time_step" of each problem as the final evaluation index.
+    However, we only take "final score"(,which is the sum of subtotal_score) as the final evaluation index.
 
     """
     scores = []
@@ -48,15 +51,15 @@ def calculate_score(instances, policy):
             start_time = time.time()
             n_obs = env.reset()
             goal_checker = False
-            goal_step =  [None] * agent_num
+            goal_step = [None] * agent_num
             while not goal_checker:
                 actions = policy(n_obs, env)
                 n_obs, reward, done, info = env.step(actions)
                 goal_checker = all(done)
                 for i in range(agent_num):
-                    if reward[i] == 100: #goal
+                    if reward[i] == 100:  # goal
                         goal_step[i] = info["step"]
-                    elif reward[i] == -50: #collision
+                    elif reward[i] == -50:  # collision
                         if goal_step[i] == None:
                             goal_step[i] = 100
             for i in range(agent_num):
@@ -90,7 +93,7 @@ def calculate_score(instances, policy):
         goalrate = 0.0
         # goalcount = 0
         distance = []
-        
+
         for epi in range(TEST_EPI_NUM):
             log = env.get_log(epi + 1)
             sum_runtime += time_record[epi]
@@ -98,10 +101,6 @@ def calculate_score(instances, policy):
             sum_timestep += log["termination_time"]
             # if log["result"] == "goal": # if goal_count  + 1 if "all" agent goal
             #     goalcount += 1
-            distance.append(1/sum(log["distance_from_start"]))
-        list_of_score = []
-        for i in range(len(goal_rate_list)):
-            list_of_score.append(distance[i] * goal_rate_list[i])
         mean_runtime = sum_runtime / TEST_EPI_NUM
         mean_distance = sum_distance / TEST_EPI_NUM
         mean_timestep = sum_timestep / TEST_EPI_NUM
@@ -128,7 +127,8 @@ def calculate_score(instances, policy):
     json_filename = submitted.TEAM_NAME + ".json"
     with open(json_filename, "w") as f:
         json.dump(score_dict, f, indent=4)
-    return scores,final_score
+    return scores, final_score
+
 
 if __name__ == "__main__":
-    scores,final_score = calculate_score(problems.instances, submitted.policy)
+    scores, final_score = calculate_score(problems.instances, submitted.policy)

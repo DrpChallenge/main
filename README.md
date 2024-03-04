@@ -73,13 +73,13 @@ We call one pattern (fixed map, number of drones, and start-goal pair) as a prob
 
 #### Score for each problem
 
-The score is determined by the total number of steps each agent takes to reach the goal. If agents collide, all agents that have not reached the goal yet are considered to have taken the maximum number of steps, which is 100 steps. The objective is to **minimize** the summation of all agents' steps taken.
+The score is determined by the total number of steps each agent takes to reach the goal. If agents collide, all agents that have not reached the goal yet are considered to have taken the maximum number of steps, which is 100 steps.
 
 We simulated 10 episodes of the same problem, and the score for each problem is the average of the scores.
 
 #### Final score of all problems
 
-The final score is the sum of the scores of the 30 problems.
+The final score is the sum of the scores of the 30 problems. The objective is to **minimize** this final score.
 
 Once your (``policy/policy.py``) has been deployed, you can run ``calculate_score.py``, which will outputs a json file (``your_team_name.json``) including the score (named ``final_score``).
 

@@ -61,7 +61,7 @@ You can be free to alter the following hyper-parameters in your development, but
 <a id ="functions"></a>
 
 #### 3. The functions in class of 'env'  
-Since the class of 'env' is also as an input passed to policy, there are many functions can be used.Please refer [this file](drp_env\drp_env.py).
+Since the class of 'env' is also as an input passed to policy, there are many functions can be used.Please refer [this file](drp_env/drp_env.py).
 
 - `env.get_avail_agent_actions()`: Searches for actions available for all drones
 
@@ -113,9 +113,9 @@ Since the class of 'env' is also as an input passed to policy, there are many fu
           - `wait` : When agent be wait state, this count increases by one.
 
 
-<a  id = using-epymarl></a>
+<!-- <a  id = using-epymarl></a>
 
-<!-- ## Using Epymarl
+## Using Epymarl
 
 [epymarl](https://github.com/uoe-agents/epymarl) is a multi agent reinforcement learning framework.
 
