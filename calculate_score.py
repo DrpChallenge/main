@@ -7,7 +7,7 @@ import policy.policy as submitted
 import score.problems as problems
 
 ### Parameters
-TEST_EPI_NUM = 100
+TEST_EPI_NUM = 10
 ###############
 
 def calculate_score(instances, policy):

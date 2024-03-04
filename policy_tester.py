@@ -2,8 +2,9 @@ import gym
 import policy.policy as policy
 
 def policy_evaluation(policy, agent_num, map_name, reward_list, start, goal, render):
-    assert agent_num == len(start) and agent_num == len(goal),"The number of elements in start and goal list does not match with agent_num."
-    assert not any(element in start for element in goal),"The elements of goal and start must not match."
+    if not start and goal:
+        assert agent_num == len(start) and agent_num == len(goal),"The number of elements in start and goal list does not match with agent_num."
+        assert not any(element in start for element in goal),"The elements of goal and start must not match."
     env = gym.make(
         "drp_env:drp-" + str(agent_num) + "agent_" + map_name + "-v2",
         state_repre_flag="onehot_fov",
@@ -35,6 +36,7 @@ if __name__ == "__main__":
     # Similarly, "collision"/"wait"/"move" are rewards when a collision happens/one drone wait one step/moves one step;
     reward_list = {"goal": 100, "collision": -10, "wait": -10, "move": -1} # Developers can freely to alter the reward function (rewards are not used as evaluation index)
     
+    # If the start and goal are empty lists, they are randomly selected.
     start = [0,2,4] # drone1's start: node 0;  drone2's start: node 2;  drone3's start: node 4;
     goal = [3,6,1] # drone1's goal: node 3;  drone2's goal: node 6;  drone3's goal: node 1;
     render = True # Choose whether to visualize
