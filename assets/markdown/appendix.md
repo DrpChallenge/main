@@ -61,7 +61,7 @@ You can be free to alter the following hyper-parameters in your development, but
 <a id ="functions"></a>
 
 #### 3. The functions in class of 'env'  
-Since the class of 'env' is also as an input passed to policy, there are many functions can be used.Please refer [this file](drp_env/drp_env.py).
+Since the class of 'env' is also as an input passed to policy, there are many functions can be used.Please refer [this file](https://github.com/DrpChallenge/main/blob/main/drp_env/drp_env.py).
 
 - `env.get_avail_agent_actions()`: Searches for actions available for all drones
 
