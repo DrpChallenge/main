@@ -84,10 +84,10 @@ The final score is the sum of the scores of the 30 problems.
 Once your (``policy/policy.py``) has been deployed, you can run ``calculate_score.py``, which will outputs a json file (``your_team_name.json``) including the score (named ``final_score``).
 
 
-Please refer to [this file](score\problems.py) for more detailed information about the problems. 
+Please refer to [this file](score/problems.py) for more detailed information about the problems. 
 
 <a id ="appendix"></a>
 
 ## Appendix
 
-Please refer to [this page](assets\markdown\appendix.md) to get more detailed information about the DRP environment. 
+Please refer to [this page](assets/markdown/appendix.md) to get more detailed information about the DRP environment. 
