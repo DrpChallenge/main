@@ -21,7 +21,7 @@ def calculate_score(instances, policy):
     2. distance: mean of total moving distance of every agents
     3. time_step: mean of the termination time step of each episode
     4. goal_rate: goal rate
-    5. goal_count: number of episode which all agents reach their goal
+    5. goal_count: number of steps which 'all' agents reach their goals
     6. subtotal_score: the average of the scores at the same pattern
 
     However, we only take "final score"(,which is the sum of subtotal_score) as the final evaluation index.
