@@ -1,4 +1,20 @@
 ## Do not change!!!!!
+
+'''
+Problem information 
+map_name            |number of agent| number of problem
+--------------------|---------------|-------------------
+map_3x3             |  2            | 3
+map_3x3             |  3            | 4
+map_3x3             |  4            | 3
+map_aoba01          |  4            | 3
+map_aoba01          |  6            | 4
+map_aoba01          |  8            | 3
+map_shibuya         |  8            | 3
+map_shibuya         |  10           | 4
+map_shibuya         |  12           | 3
+'''
+
 instances = [
     { 
         "id": 1,
