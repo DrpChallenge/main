@@ -35,14 +35,14 @@ Success :tada::tada: Let's start to develop algorithms for DRP challenge!
 In this competition, participants are expected to develop ``policy/policy.py``, which is essentially a mapping from input(``observation``) to output (``joint action``) at each step. 
 
 - `observation (obs)`: This object is divided into two parts: `self-position` and `goal position`.  `self-position` represents the agent's current location and `goal position` represents the agent's destination. The element represents the information of node "n". When an agent exists in node "n", the nth element of obs is set to 1.
-State: We consider three state representations in this paper. One simple way is coordinate-based representation, designating each drone's position as $\left(l^x, l^y\right)$. The another is one-hot Representation: each grid cell corresponds to a one-hot encoded vector. The length of this vector $s^i=\left[s_1^i, \ldots, s_j^i, \ldots s_{|V|}^i\right]$ equates to the total number $|V|$ of the nodes. It marks a node $s_j^i$ with 1 if the drone occupies it, while the rest remain zero. For drones located on the edges, vector values are defined by: $s_j^i=1-\frac{\operatorname{len}\left(l o c^i-v_j^i\right)}{\operatorname{len}\left(v_j, v_k\right)}, s_k^i=1-s_j^i$ when drone $i$ traverses edge $\left(v_j, v_k\right)$, and 0 otherwise. Here, $l o c^i=\left(l^{x^i}, l^{y^i}\right)$ represents drone $i$ 's current coordinates and $\operatorname{len}($,$) represents the distance. As| drone i$ approaches node $v_j^i$, the value of $s_j^i$ increases. An additional format is the one-hot with Field of View (onehot_fov), which marks a node $s_i^i$ in onehot with -1 if another drone occupies it.
+State: We consider three state representations in this paper. One simple way is coordinate-based representation, designating each drone's position as $\left(l^x, l^y\right)$. The another is one-hot Representation: each grid cell corresponds to a one-hot encoded vector. The length of this vector $s^i=\left[s_1^i, \ldots, s_j^i, \ldots s_{|V|}^i\right]$ equates to the total number $|V|$ of the nodes. It marks a node $s_j^i$ with 1 if the drone occupies it, while the rest remain zero. For drones located on the edges, vector values are defined by: $s_j^i=1-\frac{len\left(l o c^i-v_j^i\right)}{len\left(v_j, v_k\right)}, s_k^i=1-s_j^i$ when drone $i$ traverses edge $\left(v_j, v_k\right)$, and 0 otherwise. Here, $l o c^i=\left(l^{x^i}, l^{y^i}\right)$ represents drone $i$ 's current coordinates and $len($,$) represents the distance. As| drone i$ approaches node $v_j^i$, the value of $s_j^i$ increases. An additional format is the one-hot with Field of View (onehot_fov), which marks a node $s_i^i$ in onehot with -1 if another drone occupies it.
 
 - `joint action`: The joint action represents the current destination node of each agent. It will not move unless the agent's adjacent nodes are specified. 
-
+<--!
 <p align="center">
  <img src="assets/img/policy.png" width="65%" >
 </p>
-
+-->
 #### Step and Episode
 
 Every time each agent takes action, increases step count.
