@@ -76,7 +76,7 @@ We call one pattern (fixed map, number of drones, and start-goal pair) as a prob
 
 #### Cost for each problem
 
-The cost is determined by the total number of steps each agent takes to reach the goal. If drones collide, all drones that have not reached the goal yet are considered to have taken the maximum number of steps, which is 100 steps.
+The cost is determined by the total number of steps each drone takes to reach the goal. If drones collide, all drones that have not reached the goal yet are considered to have taken the maximum number of steps, which is 100 steps.
 
 We simulated 10 episodes of the same problem, and the score for each problem is the average of the cost.
 
