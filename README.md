@@ -53,8 +53,8 @@ The episode ends upon conflict, exceeding 100 steps, or all drones reaching goal
 #### Goal for Contribution
 The goal for contribution in this competition is to minimize [cost](#cost) without collision happens.
 You can test your developed (``policy/policy.py``) by loading it in ``policy_tester.py``.
-
-Since drp is a gym-standard environment, you can develop it as an usual gym-standard environment without relying on ``policy_tester.py`` we provided.
+> [!NOTE]
+> Since drp is a gym-standard environment, you can develop it as an usual gym-standard environment without relying on ``policy_tester.py`` we provided.
 
 <a id="evaluation"></a>
 
