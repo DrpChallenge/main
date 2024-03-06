@@ -44,14 +44,14 @@ In this competition, participants are expected to develop ``policy/policy.py``, 
 -->
 #### Step and Episode
 
-Every time each agent takes action, increases step count.
+Every time each drone takes action, increases step count.
 In other words, every time the ``step`` function is excused, the number of steps increases by one.
 
-The episode ends upon conflict, exceeding 100 steps, or all agents reaching goals and restarting with a new environment ( If not specified indications, only the positions of the start and goal change.).
+The episode ends upon conflict, exceeding 100 steps, or all drones reaching goals and restarting with a new environment ( If not specified indications, only the positions of the start and goal change.).
 
 
-#### Goal
-The goal in this competition is to minimize [score](#score) without collision happens.
+#### Goal for Contribution
+The goal for contribution in this competition is to minimize [cost](#cost) without collision happens.
 You can test your developed (``policy/policy.py``) by loading it in ``policy_tester.py``.
 
 Since drp is a gym-standard environment, you can develop it as an usual gym-standard environment without relying on ``policy_tester.py`` we provided.
@@ -72,19 +72,19 @@ We use three maps for evaluations: ``map_3x3``, ``map_aoba01``, ``map_shibuya``.
 Each map will be evaluated on various drone numbers and various start-goal pairs.
 We call one pattern (fixed map, number of drones, and start-goal pair) as a problem and there are a totally of 30 problems which are defined in ``score/problems.py``. (Participants are forbidden to alter this file.)
 
-<a id="score"></a>
+<a id="cost"></a>
 
-#### Score for each problem
+#### Cost for each problem
 
-The score is determined by the total number of steps each agent takes to reach the goal. If agents collide, all agents that have not reached the goal yet are considered to have taken the maximum number of steps, which is 100 steps.
+The cost is determined by the total number of steps each agent takes to reach the goal. If drones collide, all drones that have not reached the goal yet are considered to have taken the maximum number of steps, which is 100 steps.
 
-We simulated 10 episodes of the same problem, and the score for each problem is the average of the scores.
+We simulated 10 episodes of the same problem, and the score for each problem is the average of the cost.
 
-#### Final score of all problems
+#### Final cost of all problems
 
-The final score is the sum of the scores of the 30 problems. The objective is to **minimize** this final score.
+The final cost is the sum of the scores of the 30 problems. The objective is to **minimize** this final cost.
 
-Once your (``policy/policy.py``) has been deployed, you can run ``calculate_score.py``, which will outputs a json file (``your_team_name.json``) including the score (named ``final_score``).
+Once your (``policy/policy.py``) has been deployed, you can run ``calculate_score.py``, which will outputs a json file (``your_team_name.json``) including the cost (named ``final_score``).
 
 
 Please refer to [this file](score/problems.py) for more detailed information about the problems. 
