@@ -111,3 +111,7 @@ print('Finished.')
 # x = np.arange(batch_size, episodes + 1, batch_size)
 # plt.plot(x, average_rewards, marker='o')
 # plt.show()
+
+#save model
+for i in range(drone_num):
+    agent_array[i].save(f"sample_model{i}")

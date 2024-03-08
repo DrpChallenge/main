@@ -1,6 +1,6 @@
 import gym
-import policy.policy as policy
-
+# import policy.policy as policy
+from example.policy import policy
 
 def policy_evaluation(policy, drone_num, map_name, reward_list, start, goal, render):
     if not start or goal:
@@ -10,6 +10,7 @@ def policy_evaluation(policy, drone_num, map_name, reward_list, start, goal, ren
         assert not any(
             element in start for element in goal
         ), "The elements of goal and start must not match."
+    print("drp_env:drp-" + str(drone_num) + "agent_" + map_name + "-v2")
     env = gym.make(
         "drp_env:drp-" + str(drone_num) + "agent_" + map_name + "-v2",
         state_repre_flag="onehot_fov",
@@ -60,7 +61,7 @@ if __name__ == "__main__":
     which is essentially a mapping from input(global observation) to output(joint action) at each step
     """
     policy_evaluation(
-        policy=policy.policy,  # this is an example policy
+        policy=policy,  # this is an example policy
         drone_num=drone_num,
         map_name=map_name,
         reward_list=reward_list,
