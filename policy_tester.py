@@ -2,16 +2,16 @@ import gym
 import policy.policy as policy
 
 
-def policy_evaluation(policy, agent_num, map_name, reward_list, start, goal, render):
-    if not start and goal:
-        assert agent_num == len(start) and agent_num == len(
+def policy_evaluation(policy, drone_num, map_name, reward_list, start, goal, render):
+    if not start or goal:
+        assert drone_num == len(start) and drone_num == len(
             goal
-        ), "The number of elements in start and goal list does not match with agent_num."
+        ), "The number of elements in start and goal list does not match with drone_num."
         assert not any(
             element in start for element in goal
         ), "The elements of goal and start must not match."
     env = gym.make(
-        "drp_env:drp-" + str(agent_num) + "agent_" + map_name + "-v2",
+        "drp_env:drp-" + str(drone_num) + "agent_" + map_name + "-v2",
         state_repre_flag="onehot_fov",
         reward_list=reward_list,
         goal_array=goal,
@@ -26,7 +26,7 @@ def policy_evaluation(policy, agent_num, map_name, reward_list, start, goal, ren
         if render == True:
             env.render()
         print(f"obs:{obs}")  # current global observation
-        actions = policy(obs, env)  # policy:input n_obs,env return each agent's action
+        actions = policy(obs, env)  # policy:input n_obs,env return each drone's action
         obs, reward, done, info = env.step(
             actions
         )  # transfer to next state once joint action is taken
@@ -36,7 +36,7 @@ def policy_evaluation(policy, agent_num, map_name, reward_list, start, goal, ren
 
 
 if __name__ == "__main__":
-    agent_num = 3  # the number of drones (min:2 max:30)
+    drone_num = 3  # the number of drones (min:2 max:30)
     map_name = "map_aoba01"  # the map name (available maps: "map_3x3","map_aoba01","map_osaka" )
 
     # reward_list is individual reward function where
@@ -61,7 +61,7 @@ if __name__ == "__main__":
     """
     policy_evaluation(
         policy=policy.policy,  # this is an example policy
-        agent_num=agent_num,
+        drone_num=drone_num,
         map_name=map_name,
         reward_list=reward_list,
         goal=goal,

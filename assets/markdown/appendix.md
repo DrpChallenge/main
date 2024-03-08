@@ -19,12 +19,12 @@ main
 │   ├── EE_map.py
 │   ├── map
 │   └── state_repre
-├──  score  
+├──  problem  
 │     └──  problems.py # 30 problems are fixed for evaluation
 ├──policy_tester.py  # test your developed policy # feel free to customize this file
 ├──policy # your workspace
 │     └──  policy.py # your development
-└── calculate_score.py  # output evaluation result in a json file
+└── calculate_cost.py  # output evaluation result in a json file
 
 </pre>
 
@@ -46,9 +46,9 @@ You can be free to alter the following hyper-parameters in your development, but
 
 * `speed`: Represents the distance of moving in one step (all drones have same speeds and default value is 5). 
 
-* `start_ori_array`: Starting positions. If not specified, they are randomly generated.
+* `start_ori_array`: Starting positions. If not specified (start_ori_array = []), they are randomly generated.
 
-* `goal_array`: Goal positions. If not specified, they are randomly generated. 
+* `goal_array`: Goal positions. If not specified (goal_array = []), they are randomly generated. 
 
 * `visu_delay`: Waiting time for one step. Default is 0.3s.
 
