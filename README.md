@@ -40,7 +40,7 @@ In this competition, participants are expected to develop ``policy/policy.py``, 
   - Also, it has Field of View information, which marks a node $s_i^i$ in onehot with -1 if another drone occupies it.
 <p align="center">
  <img src="assets/img/obs.png" width="35%" >
-   <img src="assets/img/framework.png" width="35%" >
+   <img src="assets/img/framework.png" width="50%" >
 </p>
 
 - `joint action`: At each step, drones can choose a node to move. Consequently, we represent the action set $A$ using the node set $V$. It will wait at the current node if a drone choose an non-adjacent nodes. The joint action includes all individual actions from all drones. 
