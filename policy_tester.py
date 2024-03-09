@@ -1,6 +1,6 @@
 import gym
-# import policy.policy as policy
-from example.policy import policy
+import policy.policy as policy
+#from example.policy_prfl import policy
 
 def policy_evaluation(policy, drone_num, map_name, reward_list, start, goal, render):
     if not start or goal:
