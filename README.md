@@ -1,3 +1,4 @@
+<link href="assets\css\markdown.css"></link>
 
 # Codes of [DRP Challenge](https://drp-challenge.com/#/overview)
 
@@ -7,6 +8,7 @@
 * [Development](#development)
 * [Evaluation](#evaluation)
 * [Appendix](#appendix)
+
 ## Click [here!](https://youtu.be/GvozDxtEDTs) for introduction video.
 ## Installation
 This environment works in  `python==3.11.4`.
@@ -31,7 +33,8 @@ Success :tada::tada: Let's start to develop algorithms for DRP challenge!
 
 ## Development  
 
-#### ``policy/policy.py``
+<!-- #### ``policy/policy.py`` -->
+
 In this competition, participants are expected to develop ``policy/policy.py``, which is essentially a mapping from input(``observation``) to output (``joint action``) at each step. 
 
 - `observation (obs)`: The obs $s^i$ for each drone consists of two parts: `current location` and `goal position`.  They are in soft-hot representation: the length of this vector $s^i=\left[s_1^i, \ldots, s_j^i, \ldots s_{|V|}^i, s_{|V|+1}^i, \ldots, s_{|V|+j}^i, \ldots s_{|V|*2}^i\right]$ equates to the double of number $|V|$ of the nodes on a map.
@@ -49,6 +52,7 @@ In this competition, participants are expected to develop ``policy/policy.py``, 
  <img src="assets/img/policy.png" width="65%" >
 </p>
 -->
+
 #### Step and Episode
 
 Every time each drone takes action, increases step count.
@@ -83,11 +87,22 @@ We call one pattern (fixed map, number of drones, and start-goal pair) as a prob
 
 #### Cost for each problem
 
-The cost is determined by the total number of steps each drone takes to reach the goal. If drones collide, all drones that have not reached the goal yet are considered to have taken the maximum number of steps, which is 100 steps.
+$$Cost = \frac{1}{10} \sum_{i=1}^{10} \sum_{j \in drones} cost_{ij}
+$$
+Where:
+$i$ is the number of episode.
+A set $drones$ is all drones at the problem.
 
-We simulated 10 episodes of the same problem, and the cost for each problem is the average of the cost.
+$$ cost_{ij} = \begin{cases}
+cost_{ij} & \text{if no collision happened until step} ~ cost_{ij} ~ \text{at episode} ~ i ~ \text{and } ~ cost_{ij} < 100 \\
+100 & \text{if collision happened and doesn't reach or } cost_{ij} \geq 100 \\
+\end{cases}$$
 
 #### Final cost of all problems
+$$Final~Cost = \sum_{p \in problems}cost_p 
+$$
+where:
+$cost_p$ is the cost of the problem $p$.
 
 The final cost is the sum of the costs of the 30 problems. The objective is to **minimize** this final cost.
 
@@ -95,6 +110,11 @@ Once your (``policy/policy.py``) has been deployed, you can run ``calculate_cost
 
 
 Please refer to [this file](problem/problems.py) for more detailed information about the problems. 
+<p align="center">
+<img src="assets/img/score1.png" width="49%" >
+<img src="assets/img/score2.png" width="49%" >
+</p>
+<img src="assets/img/score3.png" width="49%" >
 
 <a id ="appendix"></a>
 
