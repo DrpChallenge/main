@@ -85,13 +85,13 @@ We call one pattern (fixed map, number of drones, and start-goal pair) as a prob
 
 <a id="cost"></a>
 
-#### Cost for each problem
+#### Cost for each problem　
 
-$$Cost = \frac{1}{10} \sum_{i=1}^{10} \sum_{j \in drones} cost_{ij}
+$$cost_p = \frac{1}{10} \sum_{i=1}^{10} \sum_{j \in drones} cost_{ij}
 $$
 Where:
-$i$ is the number of episode.
-A set $drones$ is all drones at the problem.
+$i$ is the iteration number. For each problem, we take average of 10 iterations as the final result, which corresponds to $i=1\~10$.
+$drones$ is the set of drones at that problem.
 
 $$ cost_{ij} = \begin{cases}
 cost_{ij} & \text{if no collision happened until step} ~ cost_{ij} ~ \text{at episode} ~ i ~ \text{and } ~ cost_{ij} < 100 \\
