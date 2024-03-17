@@ -2,6 +2,12 @@
 
 # Codes of [DRP Challenge](https://drp-challenge.com/#/overview)
 
+> [!Note]
+> ### News
+> 2024.03.10 A brief illustration [video](https://youtu.be/GvozDxtEDTs) has been uploaded.
+> 
+> 2024.03.14 A reinforcement learning [example code](example/) has been provided.
+
 ## Outline
 
 * [Installation](#installation)
@@ -100,10 +106,10 @@ step_{ij} & \text{if drone $j$ reached its goal without collision at iteration $
 
 There are three classic patterns to calculate costs as follows.
 <p align="center">
-<img src="assets/img/score1.png" width="49%" >
-<img src="assets/img/score2.png" width="49%" >
+<img src="assets/img/score1.png" width="30%" >
+<img src="assets/img/score2.png" width="30%" >
+<img src="assets/img/score3.png" width="30%" >
 </p>
-<img src="assets/img/score3.png" width="49%" >
 
 #### Final cost of all problems
 $$Final~Cost = \sum_{p \in problems}cost_p 
