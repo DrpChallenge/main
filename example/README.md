@@ -2,17 +2,13 @@
 
 ## Introduction
 In this example, we demonstrate how to implement reinforcement learning using the PFRL library (a deep reinforcement learning library using PyTorch). We provide two scripts: `train_by_pfrl.py` for training a reinforcement learning agent using the DQN algorithm and `policy_prfl.py` for executing a trained policy.
-
-## `train_by_pfrl.py`
-
 ### Dependencies
 Before running the script, make sure to install the PFRL library using pip:
 ```
 $ pip install pfrl
 ```
+## `train_by_pfrl.py`
 
-### Script Overview
-   
 1. **Q-Function**: We define a neural network model called `QFunction` using PyTorch, which serves as the Action value function (a.k.a. Q-function) approximator for the DQN algorithm.
 
 2. **Fully Decentralized Control**: We configure the DQN agent using PFRL. Each drone in the environment has its own agent (an independent Q-Function), and we create an array of agents accordingly, which corresponds to a fully decentralized control.
@@ -22,8 +18,6 @@ $ pip install pfrl
 4. **Model Saving**: After training, we save the trained models for each drone. 
 
 ## `policy_prfl.py`
-
-### Script Overview
 
 5. **Model Loading**: After runing `train_by_pfrl.py`, a folder called `models` would be generated which save the trained models for each drone. In the policy function, we load the trained models  for each drone and use them to select actions based on the observations.
 
