@@ -95,8 +95,15 @@ $drones$ is the set of drones at that problem.
 
 $$ cost_{ij} = \begin{cases}
 step_{ij} & \text{if drone $j$ reached its goal without collision at iteration $i$, $cost_{ij}$ is the steps costed untill reaching its goal } \\
-100 & \text{if collision happened or doesn't reach the goal } \\
+100 & \text{if collision happened or drone $j$ doesn't reach the goal } \\
 \end{cases}$$
+
+There are three classic patterns to calculate costs as follows.
+<p align="center">
+<img src="assets/img/score1.png" width="49%" >
+<img src="assets/img/score2.png" width="49%" >
+</p>
+<img src="assets/img/score3.png" width="49%" >
 
 #### Final cost of all problems
 $$Final~Cost = \sum_{p \in problems}cost_p 
@@ -104,17 +111,10 @@ $$
 where:
 $cost_p$ is the cost of the problem $p$.
 
-The final cost is the sum of the costs of the 30 problems. The objective is to **minimize** this final cost.
+The final cost is the sum of the costs of the 30 problems ([more details](problem/problems.py)). The objective is to **minimize** this final cost $Final~Cost$.
 
 Once your (``policy/policy.py``) has been deployed, you can run ``calculate_cost.py``, which will outputs a json file (``your_team_name.json``) including the cost (named ``final cost``).
 
-
-Please refer to [this file](problem/problems.py) for more detailed information about the problems. 
-<p align="center">
-<img src="assets/img/score1.png" width="49%" >
-<img src="assets/img/score2.png" width="49%" >
-</p>
-<img src="assets/img/score3.png" width="49%" >
 
 <a id ="appendix"></a>
 
