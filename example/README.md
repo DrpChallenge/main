@@ -1,4 +1,4 @@
-# Reinforcement Learning Implementation using PFRL Library
+# Reinforcement Learning Implementation Example using PFRL Library
 
 ## Introduction
 In this example, we demonstrate how to implement reinforcement learning using the PFRL library (a deep reinforcement learning library using PyTorch). We provide two scripts: `train_by_pfrl.py` for training a reinforcement learning agent using the DQN algorithm and `policy_prfl.py` for executing a trained policy.
