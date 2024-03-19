@@ -52,6 +52,7 @@ Success :tada::tada: Let's start to develop algorithms for DRP challenge!
 <table style="border:none">
 <tr style="border:none">
 <td style="border:none;width=45%">
+
 In this competition, participants are expected to develop `policy/policy.py`, which is essentially a mapping from input(`observation`) to output (`joint action`) at each step.
 
 - `observation (obs)`: The obs $s^i$ for each drone consists of two parts: `current location` and `goal position`. They are in soft-hot representation: the length of this vector $s^i=\left[s_1^i, \ldots, s_j^i, \ldots s_{|V|}^i, s_{|V|+1}^i, \ldots, s_{|V|+j}^i, \ldots s_{|V|*2}^i\right]$ equates to the double of number $|V|$ of the nodes on a map.
