@@ -106,9 +106,9 @@ step_{ij} & \text{if drone $j$ reached its goal without collision at iteration $
 
 There are three classic patterns to calculate costs as follows.
 <p align="center">
-<img src="assets/img/score1.png" width="30%" >
-<img src="assets/img/score2.png" width="30%" >
-<img src="assets/img/score3.png" width="30%" >
+<img src="assets/img/score_1.png" width="30%" >
+<img src="assets/img/score_2.png" width="30%" >
+<img src="assets/img/score_3.png" width="30%" >
 </p>
 
 #### Final cost of all problems
