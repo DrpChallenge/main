@@ -50,7 +50,7 @@ Success :tada::tada: Let's start to develop algorithms for DRP challenge!
 <!-- #### ``policy/policy.py`` -->
 
 <div style="display:flex">
-<div style="width:15%">
+<div style="width:100px">
 
 In this competition, participants are expected to develop `policy/policy.py`, which is essentially a mapping from input(`observation`) to output (`joint action`) at each step.
 
@@ -60,7 +60,7 @@ In this competition, participants are expected to develop `policy/policy.py`, wh
   - Also, it has Field of View information, which marks a node $s_j^i$ in onehot with -1 if another drone occupies it.
 - `joint action`: At each step, drones can choose a node to move. Consequently, we represent the action set $A$ using the node set $V$. It will wait at the current node if a drone choose an non-adjacent nodes. The joint action includes all individual actions from all drones.
 </div>
-  <div style="width:15%">
+  <div style="width:100px">
     <div>
       <img src="assets/img/obs.png" width="35%" >
     </div>
