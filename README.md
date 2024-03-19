@@ -127,3 +127,5 @@ Once your (``policy/policy.py``) has been deployed, you can run ``calculate_cost
 ## Appendix
 
 Please refer to [this page](assets/markdown/appendix.md) to get more detailed information about the DRP environment. 
+
+## [FAQ](assets/markdown/FAQ.md)
