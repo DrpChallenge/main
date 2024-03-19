@@ -62,10 +62,10 @@ In this competition, participants are expected to develop `policy/policy.py`, wh
 </td>
 <td style="border:none">
   <div>
-    <img src="./assets/img/obs.png" width="35%" >
+    <img src="https://github.com/DrpChallenge/main/blob/main/assets/img/obs.png?raw=true" width="35%" >
   </div>
   <div>
-    <img src="./assets/img/framework.png" width="50%" >
+    <img src="https://github.com/DrpChallenge/main/blob/main/assets/img/framework.png?raw=true" width="50%" >
   </div>
 </td>
 </tr>
