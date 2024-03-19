@@ -50,7 +50,7 @@ Success :tada::tada: Let's start to develop algorithms for DRP challenge!
 <!-- #### ``policy/policy.py`` -->
 
 <table style="border:none">
-<tr>
+<tr style="border:none">
 <td style="border:none">
 In this competition, participants are expected to develop `policy/policy.py`, which is essentially a mapping from input(`observation`) to output (`joint action`) at each step.
 
