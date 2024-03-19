@@ -49,9 +49,9 @@ Success :tada::tada: Let's start to develop algorithms for DRP challenge!
 
 <!-- #### ``policy/policy.py`` -->
 
-<table>
+<table style="border:none">
 <tr>
-<td>
+<td style="border:none">
 In this competition, participants are expected to develop `policy/policy.py`, which is essentially a mapping from input(`observation`) to output (`joint action`) at each step.
 
 - `observation (obs)`: The obs $s^i$ for each drone consists of two parts: `current location` and `goal position`. They are in soft-hot representation: the length of this vector $s^i=\left[s_1^i, \ldots, s_j^i, \ldots s_{|V|}^i, s_{|V|+1}^i, \ldots, s_{|V|+j}^i, \ldots s_{|V|*2}^i\right]$ equates to the double of number $|V|$ of the nodes on a map.
@@ -60,7 +60,7 @@ In this competition, participants are expected to develop `policy/policy.py`, wh
   - Also, it has Field of View information, which marks a node $s_j^i$ in onehot with -1 if another drone occupies it.
 - `joint action`: At each step, drones can choose a node to move. Consequently, we represent the action set $A$ using the node set $V$. It will wait at the current node if a drone choose an non-adjacent nodes. The joint action includes all individual actions from all drones.
 </td>
-<td>
+<td style="border:none">
   <div>
     <img src="./assets/img/obs.png" width="35%" >
   </div>
