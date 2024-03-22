@@ -7,6 +7,8 @@
 > 2024.03.10 A brief illustration [video](https://youtu.be/GvozDxtEDTs) has been uploaded.
 > 
 > 2024.03.14 A reinforcement learning [example code](example/) has been provided.
+>
+> 2024.03.22 [Some date](https://drp-challenge.com/#/guidelines#important-date) has been changed and [Frequently Asked Questions](assets/markdown/FAQ.md) page open.
 
 ## Outline
 
@@ -16,8 +18,9 @@
 * [Appendix](#appendix)
 
 ## Click [here!](https://youtu.be/GvozDxtEDTs) for introduction video.
+
 ## Installation
-This environment works in  `python==3.11.4`.
+This environment works in  `python==3.11.4`.(For more details, please refer to [this Q&A](https://github.com/DrpChallenge/main/blob/main/assets/markdown/FAQ.md#installation) )
 We recommend you create an exclusive environment like
 ```
 conda create -n drpdev python=3.11.4
@@ -49,7 +52,7 @@ In this competition, participants are expected to develop ``policy/policy.py``, 
   - Also, it has Field of View information, which marks a node $s_j^i$ in onehot with -1 if another drone occupies it.
 <p align="center">
  <img src="assets/img/obs.png" width="35%" >
-   <img src="assets/img/framework.png" width="50%" >
+  <img src="assets/img/framework.png" width="50%" >
 </p>
 
 - `joint action`: At each step, drones can choose a node to move. Consequently, we represent the action set $A$ using the node set $V$. It will wait at the current node if a drone choose an non-adjacent nodes. The joint action includes all individual actions from all drones. 
@@ -100,7 +103,7 @@ $i$ is the iteration number. For each problem, we take average of 10 iterations 
 $drones$ is the set of drones at that problem.
 
 $$ cost_{ij} = \begin{cases}
-step_{ij} & \text{if drone $j$ reached its goal without collision at iteration $i$, $cost_{ij}$ is the steps costed untill reaching its goal } \\
+step_{ij} & \text{if drone $j$ reached its goal without collision at iteration $i$, $cost_{ij}$ is the steps costed until reaching its goal } \\
 100 & \text{if collision happened or drone $j$ doesn't reach the goal } \\
 \end{cases}$$
 
@@ -117,7 +120,7 @@ $$
 where:
 $cost_p$ is the cost of the problem $p$.
 
-The final cost is the sum of the costs of the 30 problems ([more details](problem/problems.py)). The objective is to **minimize** this final cost $Final~Cost$.
+The final cost is the sum of the costs of the 30 problems ([more details](https://github.com/DrpChallenge/main/blob/main/problem/problems.py)). The objective is to **minimize** this final cost $Final~Cost$.
 
 Once your (``policy/policy.py``) has been deployed, you can run ``calculate_cost.py``, which will outputs a json file (``your_team_name.json``) including the cost (named ``final cost``).
 
