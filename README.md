@@ -9,6 +9,8 @@
 > 2024.03.10 A brief illustration [video](https://youtu.be/GvozDxtEDTs) has been uploaded.
 >
 > 2024.03.14 A reinforcement learning [example code](example/) has been provided.
+>
+> 2024.03.22 [Some date](https://drp-challenge.com/#/guidelines#important-date) has been changed and [Frequently Asked Questions](assets/markdown/FAQ.md) page open.
 
 ## Outline
 
@@ -20,8 +22,12 @@
 ## Click [here!](https://youtu.be/GvozDxtEDTs) for introduction video.
 
 ## Installation
+<<<<<<< HEAD
 
 This environment works in `python==3.11.4`.
+=======
+This environment works in  `python==3.11.4`.(For more details, please refer to [this Q&A](https://github.com/DrpChallenge/main/blob/main/assets/markdown/FAQ.md#installation) )
+>>>>>>> 6ad6b25002b95c55afdab47a6e62735f70c0367c
 We recommend you create an exclusive environment like
 
 ```
@@ -119,9 +125,14 @@ Where:
 $i$ is the iteration number. For each problem, we take average of 10 iterations as the final result.
 $drones$ is the set of drones at that problem.
 
+<<<<<<< HEAD
 $$
 cost_{ij} = \begin{cases}
 step_{ij} & \text{if drone $j$ reached its goal without collision at iteration $i$, $cost_{ij}$ is the steps costed untill reaching its goal } \\
+=======
+$$ cost_{ij} = \begin{cases}
+step_{ij} & \text{if drone $j$ reached its goal without collision at iteration $i$, $cost_{ij}$ is the steps costed until reaching its goal } \\
+>>>>>>> 6ad6b25002b95c55afdab47a6e62735f70c0367c
 100 & \text{if collision happened or drone $j$ doesn't reach the goal } \\
 \end{cases}
 $$
@@ -129,9 +140,9 @@ $$
 There are three classic patterns to calculate costs as follows.
 
 <p align="center">
-<img src="assets/img/score1.png" width="30%" >
-<img src="assets/img/score2.png" width="30%" >
-<img src="assets/img/score3.png" width="30%" >
+<img src="assets/img/score_1.png" width="30%" >
+<img src="assets/img/score_2.png" width="30%" >
+<img src="assets/img/score_3.png" width="30%" >
 </p>
 
 #### Final cost of all problems
@@ -143,7 +154,7 @@ $$
 where:
 $cost_p$ is the cost of the problem $p$.
 
-The final cost is the sum of the costs of the 30 problems ([more details](problem/problems.py)). The objective is to **minimize** this final cost $Final~Cost$.
+The final cost is the sum of the costs of the 30 problems ([more details](https://github.com/DrpChallenge/main/blob/main/problem/problems.py)). The objective is to **minimize** this final cost $Final~Cost$.
 
 Once your (`policy/policy.py`) has been deployed, you can run `calculate_cost.py`, which will outputs a json file (`your_team_name.json`) including the cost (named `final cost`).
 
@@ -151,4 +162,10 @@ Once your (`policy/policy.py`) has been deployed, you can run `calculate_cost.py
 
 ## Appendix
 
+<<<<<<< HEAD
 Please refer to [this page](assets/markdown/appendix.md) to get more detailed information about the DRP environment.
+=======
+Please refer to [this page](assets/markdown/appendix.md) to get more detailed information about the DRP environment. 
+
+## [FAQ](assets/markdown/FAQ.md)
+>>>>>>> 6ad6b25002b95c55afdab47a6e62735f70c0367c
