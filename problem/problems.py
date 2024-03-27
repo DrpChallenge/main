@@ -108,13 +108,6 @@ instances = [
         "goal": [ 14, 3, 5, 0]
     },
     {
-        "id": 13,
-        "map": "map_aoba01",
-        "drone_num": 6,
-        "start": [1, 11, 0, 12, 8, 16],
-        "goal": [ 5, 17, 15, 6, 3, 13]
-    },
-    {
         "id": 14,
         "map": "map_aoba01",
         "drone_num": 6,
