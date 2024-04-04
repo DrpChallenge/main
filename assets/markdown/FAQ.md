@@ -3,7 +3,7 @@
 ## Contents
 
 * [Installation](#installation)
-* [AAMAS](#aamas)
+* [AAMAS participation](#aamas)
 * [Drone Behavior](#drone)
 
 
@@ -17,14 +17,41 @@ Can python be anything other than ``3.11.4``?
 #### A1
 If the environment is running, it should be fine, not limited to ``3.11.4`` in particular. I can't guarantee since I haven't actually run it, but it should work for ``3.8`` or higher. If you change the Python version, you'll need to prepare correct the module versions.
 
-### AAMAS 
+### AAMAS participation
 
 #### Q1
 If my team is invited to attend the DRP competition meeting at AAMAS, do we have to register for AAMAS?
 
 #### A1
 No registration for AAMAS is required for this competition. 
-Teams will be invited if they are selected as [finalists](https://drp-challenge.com/#/guidelines).
+Teams will be invited if they are selected as [finalists](https://drp-challenge.com/#/guidelines) at May 3.
+<!-- Once finalists are selected, we are going to ask whether they will attend AAMAS virtually or in person. -->
+
+#### Q2
+Can anyone attend the DRP competition meeting at AAMAS in-person?
+
+#### A2
+Anyone who registers for AAMAS can attend the DRP competition meeting in-person at AAMAS.
+Additionally, finalists can attend this meeting.
+
+#### Q3
+Can we attend the DRP competition meeting at AAMAS in virtually ?
+
+#### A3
+If you are selected as a finalist, you can attend the DRP competition meeting at AAMAS in person or virtually.
+
+#### Q4
+When and where is the DRP competition at AAMAS ?
+
+#### A4
+It is going to take place on May 5 or 6, but the specific date, time, and location have not been determined yet. 
+We will inform you via email once we are notified by AAMAS organizers.
+
+#### Q5
+Would the DRP competition organizers assist with my travel and/or accommodation if I participate in the DRP competition meeting at AAMAS?
+
+#### A5
+Regrettably, We cannot help with travel and/or lodging fee.
 
 <a id="drone"></a>
 
