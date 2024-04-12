@@ -23,34 +23,23 @@ If the environment is running, it should be fine, not limited to ``3.11.4`` in p
 If my team is invited to attend the DRP competition meeting at AAMAS, do we have to register for AAMAS?
 
 #### A1
-No registration for AAMAS is required for this competition. 
+DRP competition participants can attend the meeting.
+If you want to attend online, No registration for AAMAS is required.
+In contrast, for in-person participants, as competitions are a part of the main AAMAS program, a ticket to attend the main program of AAMAS is necessary.  
 Teams will be invited if they are selected as [finalists](https://drp-challenge.com/#/guidelines) at May 3.
 <!-- Once finalists are selected, we are going to ask whether they will attend AAMAS virtually or in person. -->
 
 #### Q2
-Can anyone attend the DRP competition meeting at AAMAS in-person?
-
-#### A2
-Anyone who registers for AAMAS can attend the DRP competition meeting in-person at AAMAS.
-Additionally, finalists can attend this meeting.
-
-#### Q3
-Can we attend the DRP competition meeting at AAMAS in virtually ?
-
-#### A3
-If you are selected as a finalist, you can attend the DRP competition meeting at AAMAS in person or virtually.
-
-#### Q4
 When and where is the DRP competition at AAMAS ?
 
-#### A4
-It is going to take place on May 5 or 6, but the specific date, time, and location have not been determined yet. 
+#### A2
+It is going to take place on May 9 . 
 We will inform you via email once we are notified by AAMAS organizers.
 
-#### Q5
+#### Q3
 Would the DRP competition organizers assist with my travel and/or accommodation if I participate in the DRP competition meeting at AAMAS?
 
-#### A5
+#### A3
 Regrettably, We cannot help with travel and/or lodging fee.
 
 <a id="drone"></a>
