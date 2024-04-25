@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <agent start_id="9" goal_id="7"/>
+    <agent start_id="12" goal_id="3"/>
+    <agent start_id="10" goal_id="14"/>
+    <agent start_id="2" goal_id="16"/>
+    <agent start_id="8" goal_id="13"/>
+    <agent start_id="15" goal_id="1"/>
+    <log>
+        <summary time="3.2189048755835556e-317" flowtime="-1" makespan="-1"/>
+    </log>
+</root>

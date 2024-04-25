@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <agent start_id="5" goal_id="14"/>
+  <agent start_id="18" goal_id="21"/>
+  <agent start_id="6" goal_id="8"/>
+  <agent start_id="12" goal_id="26"/>
+  <agent start_id="27" goal_id="13"/>
+  <agent start_id="17" goal_id="25"/>
+  <agent start_id="3" goal_id="22"/>
+  <agent start_id="9" goal_id="23"/>
+</root>

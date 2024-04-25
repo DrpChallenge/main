@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <agent start_id="18" goal_id="4"/>
+    <agent start_id="21" goal_id="10"/>
+    <agent start_id="27" goal_id="0"/>
+    <agent start_id="11" goal_id="6"/>
+    <agent start_id="23" goal_id="26"/>
+    <agent start_id="22" goal_id="15"/>
+    <agent start_id="17" goal_id="7"/>
+    <agent start_id="13" goal_id="19"/>
+    <agent start_id="24" goal_id="12"/>
+    <agent start_id="9" goal_id="8"/>
+    <agent start_id="2" goal_id="14"/>
+    <agent start_id="5" goal_id="1"/>
+    <log>
+        <summary time="3.2189048755835556e-317" flowtime="-1" makespan="-1"/>
+    </log>
+</root>

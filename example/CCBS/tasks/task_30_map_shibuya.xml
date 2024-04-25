@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <agent start_id="20" goal_id="5"/>
+  <agent start_id="12" goal_id="15"/>
+  <agent start_id="9" goal_id="27"/>
+  <agent start_id="11" goal_id="19"/>
+  <agent start_id="18" goal_id="23"/>
+  <agent start_id="7" goal_id="22"/>
+  <agent start_id="13" goal_id="10"/>
+  <agent start_id="2" goal_id="24"/>
+  <agent start_id="3" goal_id="4"/>
+  <agent start_id="21" goal_id="25"/>
+  <agent start_id="16" goal_id="0"/>
+  <agent start_id="6" goal_id="17"/>
+</root>

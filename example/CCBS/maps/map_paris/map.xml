@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<graphml>
+  <key id="key0" for="node" attr.name="coords" attr.type="string"/>
+  <key id="key1" for="node" attr.name="weight" attr.type="double"/>
+  <graph id="G" edgedefault="undirected" parse_nodeids="free" parse_edgeids="canonical" parse_order="nodesfirst">
+    <node id="n0">
+      <data key="key0">2.2953622,48.8735374</data>
+    </node>
+    <node id="n1">
+      <data key="key0">2.2971802,48.8731324</data>
+    </node>
+    <node id="n2">
+      <data key="key0">2.2972875,48.873951</data>
+    </node>
+    <node id="n3">
+      <data key="key0">2.2985105,48.8741203</data>
+    </node>
+    <node id="n4">
+      <data key="key0">2.2994547,48.8723844</data>
+    </node>
+    <node id="n5">
+      <data key="key0">2.3000984,48.8732171</data>
+    </node>
+    <node id="n6">
+      <data key="key0">2.2996907,48.8742332</data>
+    </node>
+    <node id="n7">
+      <data key="key0">2.3011069,48.8744873</data>
+    </node>
+    <node id="n8">
+      <data key="key0">2.3005919,48.8738098</data>
+    </node>
+    <node id="n9">
+      <data key="key0">2.3010211,48.8730195</data>
+    </node>
+    <node id="n10">
+      <data key="key0">2.3017292,48.8733864</data>
+    </node>
+    <node id="n11">
+      <data key="key0">2.3011069,48.871961</data>
+    </node>
+    <node id="n12">
+      <data key="key0">2.302845,48.8730336</data>
+    </node>
+    <node id="n13">
+      <data key="key0">2.3034887,48.8736405</data>
+    </node>
+    <node id="n14">
+      <data key="key0">2.3023086,48.8745437</data>
+    </node>
+    <node id="n15">
+      <data key="key0">2.3053985,48.8747413</data>
+    </node>
+    <edge id="e0" source="n0" target="n1">
+      <data key="key1">0.0018625651666438758</data>
+    </edge>
+    <edge id="e1" source="n0" target="n2">
+      <data key="key1">0.001969224479332164</data>
+    </edge>
+    <edge id="e2" source="n1" target="n2">
+      <data key="key1">0.0008256023558542864</data>
+    </edge>
+    <edge id="e3" source="n1" target="n3">
+      <data key="key1">0.0016569986421226235</data>
+    </edge>
+    <edge id="e4" source="n1" target="n4">
+      <data key="key1">0.0023943379565136763</data>
+    </edge>
+    <edge id="e5" source="n2" target="n3">
+      <data key="key1">0.0012346625004433407</data>
+    </edge>
+    <edge id="e6" source="n3" target="n5">
+      <data key="key1">0.001826799564814454</data>
+    </edge>
+    <edge id="e7" source="n3" target="n6">
+      <data key="key1">0.001185587807798391</data>
+    </edge>
+    <edge id="e8" source="n4" target="n5">
+      <data key="key1">0.0010524917956897287</data>
+    </edge>
+    <edge id="e9" source="n4" target="n11">
+      <data key="key1">0.0017055885787617344</data>
+    </edge>
+    <edge id="e10" source="n5" target="n8">
+      <data key="key1">0.0007712558200742706</data>
+    </edge>
+    <edge id="e11" source="n5" target="n9">
+      <data key="key1">0.0009436212428721886</data>
+    </edge>
+    <edge id="e12" source="n6" target="n7">
+      <data key="key1">0.001438815224411953</data>
+    </edge>
+    <edge id="e13" source="n6" target="n8">
+      <data key="key1">0.000995705277681109</data>
+    </edge>
+    <edge id="e14" source="n7" target="n8">
+      <data key="key1">0.0008510177730239238</data>
+    </edge>
+    <edge id="e15" source="n7" target="n14">
+      <data key="key1">0.0012030227969574005</data>
+    </edge>
+    <edge id="e16" source="n8" target="n10">
+      <data key="key1">0.0012135562821706618</data>
+    </edge>
+    <edge id="e17" source="n9" target="n10">
+      <data key="key1">0.0007975093855263035</data>
+    </edge>
+    <edge id="e18" source="n10" target="n12">
+      <data key="key1">0.001170246760303657</data>
+    </edge>
+    <edge id="e19" source="n11" target="n12">
+      <data key="key1">0.0020424158171147805</data>
+    </edge>
+    <edge id="e20" source="n12" target="n13">
+      <data key="key1">0.0008846905108574383</data>
+    </edge>
+    <edge id="e21" source="n13" target="n14">
+      <data key="key1">0.001486070741920858</data>
+    </edge>
+    <edge id="e22" source="n13" target="n15">
+      <data key="key1">0.002204335881845443</data>
+    </edge>
+    <edge id="e23" source="n14" target="n15">
+      <data key="key1">0.0030962118419126028</data>
+    </edge>
+  </graph>
+</graphml>

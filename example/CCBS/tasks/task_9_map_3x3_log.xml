@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <agent start_id="5" goal_id="8"/>
+    <agent start_id="0" goal_id="3"/>
+    <agent start_id="2" goal_id="6"/>
+    <agent start_id="1" goal_id="7"/>
+    <log>
+        <summary time="0.000232656" flowtime="217.54749445827909" makespan="84.291053165818781"/>
+        <agent number="0">
+            <path duration="24.500026547969021">
+                <section number="0" start_i="44.13540224880213" start_j="22.090149694308082" goal_i="48.901939518392894" goal_j="46.122033168326283" duration="24.500026547969021"/>
+            </path>
+        </agent>
+        <agent number="1">
+            <path duration="53.076917678381591">
+                <section number="0" start_i="8.9414074598680529" start_j="5.5205590956573722" goal_i="8.9414074598680529" goal_j="5.5205590956573722" duration="0.62981142600106566"/>
+                <section number="1" start_i="8.9414074598680529" start_j="5.5205590956573722" goal_i="25.123294045127786" goal_j="2.3476079126381411" duration="16.490029492636818"/>
+                <section number="2" start_i="25.123294045127786" start_j="2.3476079126381411" goal_i="24.749958418391209" goal_j="20.615793469462933" duration="18.271999973423071"/>
+                <section number="3" start_i="24.749958418391209" start_j="20.615793469462933" goal_i="7.1694271850923421" goal_j="22.5359139065866" duration="17.685076786320636"/>
+            </path>
+        </agent>
+        <agent number="2">
+            <path duration="84.291053165818781">
+                <section number="0" start_i="48.720018656712597" start_j="8.7448883538321702" goal_i="44.13540224880213" goal_j="22.090149694308082" duration="14.110801106006802"/>
+                <section number="1" start_i="44.13540224880213" start_j="22.090149694308082" goal_i="24.749958418391209" goal_j="20.615793469462933" duration="19.441428928444445"/>
+                <section number="2" start_i="24.749958418391209" start_j="20.615793469462933" goal_i="29.602897042219769" goal_j="41.127843366209703" duration="21.078311228684242"/>
+                <section number="3" start_i="29.602897042219769" start_j="41.127843366209703" goal_i="0.23685146558625189" goal_j="45.296936015731923" duration="29.66051190268329"/>
+            </path>
+        </agent>
+        <agent number="3">
+            <path duration="55.679497066109633">
+                <section number="0" start_i="25.123294045127786" start_j="2.3476079126381411" goal_i="25.123294045127786" goal_j="2.3476079126381411" duration="15.993021134533873"/>
+                <section number="1" start_i="25.123294045127786" start_j="2.3476079126381411" goal_i="24.749958418391209" goal_j="20.615793469462933" duration="18.271999973423068"/>
+                <section number="2" start_i="24.749958418391209" start_j="20.615793469462933" goal_i="24.749958418391209" goal_j="20.615793469462933" duration="0.33616472946845022"/>
+                <section number="3" start_i="24.749958418391209" start_j="20.615793469462933" goal_i="29.602897042219769" goal_j="41.127843366209703" duration="21.078311228684242"/>
+            </path>
+        </agent>
+    </log>
+</root>
