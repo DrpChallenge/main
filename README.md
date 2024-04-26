@@ -4,11 +4,15 @@
 
 > [!Note]
 > ### News
-> 2024.03.10 A brief illustration [video](https://youtu.be/GvozDxtEDTs) has been uploaded.
-> 
-> 2024.03.14 A reinforcement learning [example code](example/) has been provided.
+> 2024.04.25 We extended the Submission Deadline to April 28th, 23:59 AoE. We are looking forward to your submission!!
 >
 > 2024.03.22 [Some date](https://drp-challenge.com/#/guidelines#important-date) has been changed and [Frequently Asked Questions](assets/markdown/FAQ.md) page open.
+>
+> 2024.03.14 A reinforcement learning [example code](example/) has been provided.
+>
+> 2024.03.10 A brief illustration [video](https://youtu.be/GvozDxtEDTs) has been uploaded.
+
+
 
 ## Outline
 
