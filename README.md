@@ -6,8 +6,8 @@
 >
 > ### News
 >
-> 2024.05.09 DRP Challenge at AAMAS2024 was successfully held.
-> Thank you to all participants!
+> 2024.05.09 DRP Challenge at AAMAS2024 was successfully held. Thank you to all participants!
+>
 > 2024.04.25 We extended the Submission Deadline to April 28th, 23:59 AoE. We are looking forward to your submission!!
 >
 > 2024.03.22 [Some date](https://drp-challenge.com/#/guidelines#important-date) has been changed and [Frequently Asked Questions](assets/markdown/FAQ.md) page open.
